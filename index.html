@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IVANN TRESOR - Le Panthéon Numérique</title>
-    <!-- Chargement de Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuration de la police Inter --><style>
+    <title>𝙏𝙧𝙞𝙥𝙡𝙚 𝙣𝙞𝙣𝙚</title>
+    
+    <!-- Chargement de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration de la police Inter -->
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
@@ -18,7 +22,7 @@
             padding-top: 3rem;
             padding-bottom: 3rem;
         }
-        /* Style de la carte principale (optionnel, mais garde un point focal) */
+        /* Style de la carte principale */
         .profile-card {
             background-color: #1a1a1a; /* Gris très foncé pour un léger contraste avec le fond */
             border-radius: 1.5rem;
@@ -38,7 +42,9 @@
             color: #FFFFFF;
         }
     </style>
-    <!-- Configuration Tailwind pour les couleurs --><script>
+    
+    <!-- Configuration Tailwind pour les couleurs -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -52,47 +58,100 @@
 </head>
 <body>
 
-    <!-- Conteneur principal --><div class="profile-card w-full max-w-sm sm:max-w-md mx-4 p-6 space-y-6">
+    <!-- Conteneur principal -->
+    <div class="profile-card w-full max-w-sm sm:max-w-md mx-4 p-6 space-y-6">
 
-        <!-- Section Profil --><header class="text-center">
-            <!-- Image de Profil (Placeholder) - Cercles noirs/blancs pour rester dans le thème --><div class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-xl object-cover bg-gray-900 flex items-center justify-center">
-                <span class="text-white text-4xl font-extrabold">IT</span>
+        <!-- Section Profil -->
+        <header class="text-center">
+            
+            <!-- CODE POUR LA PHOTO DE PROFIL : REMPLACEZ L'URL CI-DESSOUS PAR VOTRE PROPRE LIEN D'IMAGE -->
+            <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" 
+                 alt="Photo de profil" 
+                 class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-xl object-cover">
+            
+            <!-- Nom d'utilisateur -->
+            <h1 class="text-2xl sm:text-3xl font-extrabold mt-4 text-white break-words">@𝟗𝟗𝟗</h1>
+            
+            <!-- Bio/Description MISE À JOUR -->
+            <div class="text-gray-400 mt-2 text-base italic space-y-1">
+                <!-- Utilisez un véritable nom ici ! -->
+                <p class="text-accent-fuchsia text-lg font-semibold">Just Me</p>
+                <p>ici, tu a tous les moyens de me contacter <br>Click just</p>
             </div>
-            
-            <!-- Nom d'utilisateur - Ajustement de la taille de la police pour les petits écrans --><h1 class="text-2xl sm:text-3xl font-extrabold mt-4 text-white break-words">@IVANN_TRESOR_OFFICIAL</h1>
-            
-            <!-- Bio/Description --><p class="text-gray-400 mt-2 text-base italic">
-                Entrepreneur | Mode & Motivation. Le Trésor, c'est vous. 👑
-            </p>
         </header>
 
-        <!-- Section Liens --><main class="space-y-4 pt-4">
+        <!-- Section Liens -->
+        <main class="space-y-4 pt-4">
 
-            <!-- Bouton 1: Instagram --><a href="https://www.instagram.com/ivann_tresor_official" target="_blank"
+            <!-- Bouton 1: Instagram -->
+            <a href="https://www.instagram.com/ivann_tresor_official" target="_blank"
                class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- Icône Instagram SVG (Blanc pour le contraste) --><svg class="w-6 h-6 mr-3" fill="none" stroke="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10v10a2 2 0 002 2h14a2 2 0 002-2V10M7 5h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2zM12 15a3 3 0 100-6 3 3 0 000 6zM17.5 6.5h.01"></path>
-                </svg>
+                <!-- LOGO INSTAGRAM MODIFIABLE -->
+                <img src="https://i.postimg.cc/C5KbxcVg/IMG_7090.png" 
+                     alt="Logo Instagram" 
+                     class="w-6 h-6 mr-3 object-cover rounded-md">
                 Instagram
             </a>
             
-            <!-- Bouton 2: TikTok --><a href="https://www.tiktok.com/@ivann_tresor_999_off" target="_blank"
+            <!-- Bouton 2: TikTok -->
+            <a href="https://www.tiktok.com/@ivann_tresor_999_off" target="_blank"
                class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- Icône TikTok SVG --><svg class="w-6 h-6 mr-3" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.5 1.05C12.5 1.05 12.5 1.05 12.5 1.05V13.59C12.5 13.59 12.5 13.59 12.5 13.59H10.5C10.5 13.59 10.5 13.59 10.5 13.59V8.04C10.5 7.57 10.12 7.19 9.65 7.19H7.5C7.5 7.19 7.5 7.19 7.5 7.19V10.74C7.5 10.74 7.5 10.74 7.5 10.74H9.6C10.56 10.74 11.35 11.53 11.35 12.49V19.95C11.35 20.73 12.02 21.4 12.8 21.4H15.95C16.91 21.4 17.7 20.61 17.7 19.65V1.05C17.7 1.05 17.7 1.05 17.7 1.05H12.5Z"/>
-                </svg>
+                <!-- LOGO TIKTOK MODIFIABLE -->
+                <img src="https://i.postimg.cc/HnLbk6C1/IMG_7091.png" 
+                     alt="Logo TikTok" 
+                     class="w-6 h-6 mr-3 object-cover rounded-md">
                 TikTok
             </a>
 
-            <!-- Bouton 3: WhatsApp --><a href="https://wa.me/message/BJUYXCHPF6TXK1" target="_blank"
+            <!-- Bouton 3: WhatsApp -->
+            <a href="https://wa.me/2250500090411?text=hey%20𝙏𝙧𝙞𝙥𝙡𝙚%20𝙣𝙞𝙣𝙚" target="_blank"
                class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- Icône WhatsApp SVG --><svg class="w-6 h-6 mr-3" fill="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.03 2.05c-5.518 0-9.998 4.48-9.998 9.998 0 1.954.557 3.82 1.62 5.437l-1.077 3.931 4.013-1.054c1.581.867 3.392 1.354 5.442 1.354h.01c5.51 0 9.99-4.47 9.99-9.988s-4.48-9.99-9.99-9.99zm5.57 15.65c-.097.05-.205.08-.32.08-.115 0-.223-.03-.32-.08l-.105-.058c-1.396-.757-3.003-1.157-4.665-1.157-1.662 0-3.269.4-4.665 1.157l-.105.058c-.097.05-.205.08-.32.08-.115 0-.223-.03-.32-.08l-2.028-.97c-.08-.037-.16-.06-.24-.06-.115 0-.23.03-.34.09l-1.066.52c-.105.05-.215.08-.33.08-.115 0-.23.03-.34.09l-2.028-.97c-.08-.037-.16-.06-.24-.06-.115 0-.23.03-.34.09l-1.066.52c-.105.05-.215.08-.33.08-.115 0-.23.03-.34.09l-.78-.378c-.08-.037-.16-.06-.24-.06-.115 0-.23.03-.34.09l-.49-.24c-1.25-1.05-2.03-2.58-2.03-4.26s.78-3.21 2.03-4.26c1.25-1.05 3.03-1.68 4.97-1.68h.01c1.94 0 3.72.63 4.97 1.68 1.25 1.05 2.03 2.58 2.03 4.26s-.78 3.21-2.03 4.26z"/></svg>
+                <!-- LOGO WHATSAPP MODIFIABLE -->
+                <img src="https://i.postimg.cc/fybYR8hk/IMG_7089.png" 
+                     alt="Logo WhatsApp" 
+                     class="w-6 h-6 mr-3 object-cover rounded-md">
                 WhatsApp
             </a>
 
-            <!-- Bouton 4: E-mail de Contact (Utilisation de l'accent rose principal pour l'appel à l'action) --><a href="mailto:votre.email@contact.com"
+
+
+
+
+<!-- Bouton 4:Telegram  -->
+            <a href="https://t.me/+knL2BEQwavBiZDI0" target="_blank"
+               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
+                <!-- LOGO Telegram MODIFIABLE -->
+                <img src="https://i.postimg.cc/KYZPWGsG/IMG-7082.jpg" 
+                     alt="Logo WhatsApp" 
+                     class="w-6 h-6 mr-3 object-cover rounded-md">
+                Telegram
+            </a>
+
+
+
+<!-- Bouton 5:Pinterest  -->
+            <a href="https://pin.it/6muCZkrNS" target="_blank"
+               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
+                <!-- LOGO pinterest MODIFIABLE -->
+                <img src="https://i.postimg.cc/6q02nnt2/IMG-7079.jpg" 
+                     alt="Logo WhatsApp" 
+                     class="w-6 h-6 mr-3 object-cover rounded-md">
+                Pinterest
+            </a>
+
+
+
+
+
+
+
+
+
+            <!-- Bouton 6: E-mail de Contact (Accent rose pour l'appel à l'action) -->
+            <a href="mailto:iamivanntresor999@gmail.com"
                class="link-button flex items-center justify-center w-full p-4 bg-accent-fuchsia text-white font-bold rounded-xl shadow-lg border-accent-fuchsia hover:bg-pink-600">
-                <!-- Icône E-mail SVG --><svg class="w-6 h-6 mr-3" fill="none" stroke="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <!-- Icône E-mail SVG -->
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
                 Contact Pro (E-mail)
@@ -100,11 +159,17 @@
 
         </main>
         
-        <!-- Pied de page/Crédits --><footer class="pt-8 text-center text-gray-700 text-sm">
-            <span class="text-gray-500">Propulsé par</span> <span class="font-bold text-accent-fuchsia">IVANN TRESOR</span>
+        <!-- Pied de page/Crédits -->
+        <footer class="pt-8 text-center text-gray-700 text-sm">
+            <span class="text-gray-500">Propulsé par</span> <span class="font-bold text-accent-fuchsia">𝙏𝙧𝙞𝙥𝙡𝙚 𝙣𝙞𝙣𝙚 𝟗𝟗𝟗</span>
         </footer>
 
     </div>
+
+
+
+
+
 
 </body>
 </html>
