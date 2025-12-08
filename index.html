@@ -3,166 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝙏𝙧𝙞𝙥𝙡𝙚 𝙣𝙞𝙣𝙚</title>
-    
-    <!-- Chargement de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuration de la police Inter -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            /* Fond noir intégral */
-            background-color: #000000; 
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; 
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        /* Style de la carte principale */
-        .profile-card {
-            background-color: #1a1a1a; /* Gris très foncé pour un léger contraste avec le fond */
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); /* Ombre blanche subtile */
-        }
-        /* Style pour les boutons: Transition douce et effet au survol */
-        .link-button {
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-            cursor: pointer;
-            border: 2px solid #333333; /* Bordure gris foncé */
-        }
-        .link-button:hover {
-            transform: translateY(-2px);
-            background-color: #ec4899; /* Accent rose au survol */
-            border-color: #ec4899;
-            box-shadow: 0 8px 15px -3px rgba(236, 72, 153, 0.5); 
-            color: #FFFFFF;
-        }
-    </style>
-    
-    <!-- Configuration Tailwind pour les couleurs -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'accent-fuchsia': '#ec4899', /* Fuchsia 500 pour les accents */
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Triple nine</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Conteneur principal -->
-    <div class="profile-card w-full max-w-sm sm:max-w-md mx-4 p-6 space-y-6">
+<div class="container">
 
-        <!-- Section Profil -->
-        <header class="text-center">
-            
-            <!-- CODE POUR LA PHOTO DE PROFIL : REMPLACEZ L'URL CI-DESSOUS PAR VOTRE PROPRE LIEN D'IMAGE -->
-            <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" 
-                 alt="Photo de profil" 
-                 class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-xl object-cover">
-            
-            <!-- Nom d'utilisateur -->
-            <h1 class="text-2xl sm:text-3xl font-extrabold mt-4 text-white break-words">@𝟗𝟗𝟗</h1>
-            
-            <!-- Bio/Description MISE À JOUR -->
-            <div class="text-gray-400 mt-2 text-base italic space-y-1">
-                <!-- Utilisez un véritable nom ici ! -->
-                <p class="text-accent-fuchsia text-lg font-semibold">Just Me</p>
-                <p>ici, tu a tous les moyens de me contacter <br>Click just</p>
+    <!-- PROFIL -->
+    <div class="profile-card">
+
+        <header class="profile-header">
+            <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" alt="Photo" class="profile-img">
+
+            <h1 class="username">@𝟗𝟗𝟗</h1>
+
+            <div class="bio">
+                <p class="highlight">Just Me</p>
+                <p>ici, tu as tous les moyens de me contacter<br>Click just</p>
             </div>
         </header>
 
-        <!-- Section Liens -->
-        <main class="space-y-4 pt-4">
 
-            <!-- Bouton 1: Instagram -->
-            <a href="https://www.instagram.com/ivann_tresor_official" target="_blank"
-               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- LOGO INSTAGRAM MODIFIABLE -->
-                <img src="https://i.postimg.cc/C5KbxcVg/IMG_7090.png" 
-                     alt="Logo Instagram" 
-                     class="w-6 h-6 mr-3 object-cover rounded-md">
-                Instagram
-            </a>
-            
-            <!-- Bouton 2: TikTok -->
-            <a href="https://www.tiktok.com/@ivann_tresor_999_off" target="_blank"
-               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- LOGO TIKTOK MODIFIABLE -->
-                <img src="https://i.postimg.cc/HnLbk6C1/IMG_7091.png" 
-                     alt="Logo TikTok" 
-                     class="w-6 h-6 mr-3 object-cover rounded-md">
-                TikTok
+
+
+
+
+
+
+
+
+
+        <main class="links">
+
+
+
+            <a href="https://www.instagram.com/ivann_tresor_official" class="link-button">
+                <img src="https://i.postimg.cc/C5KbxcVg/IMG_7090.png" class="icon"> Instagram
             </a>
 
-            <!-- Bouton 3: WhatsApp -->
-            <a href="https://wa.me/2250500090411?text=hey%20𝙏𝙧𝙞𝙥𝙡𝙚%20𝙣𝙞𝙣𝙚" target="_blank"
-               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- LOGO WHATSAPP MODIFIABLE -->
-                <img src="https://i.postimg.cc/fybYR8hk/IMG_7089.png" 
-                     alt="Logo WhatsApp" 
-                     class="w-6 h-6 mr-3 object-cover rounded-md">
-                WhatsApp
+
+
+            <a href="https://www.tiktok.com/@ivann_tresor_999_off" class="link-button">
+                <img src="https://i.postimg.cc/HnLbk6C1/IMG_7091.png" class="icon"> TikTok
+            </a>
+
+
+
+            <a href="https://wa.me/2250500090411?text=hey%20Triple%20nine" class="link-button">
+                <img src="https://i.postimg.cc/fybYR8hk/IMG_7089.png" class="icon"> WhatsApp
             </a>
 
 
 
 
-
-<!-- Bouton 4:Telegram  -->
-            <a href="https://t.me/+knL2BEQwavBiZDI0" target="_blank"
-               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- LOGO Telegram MODIFIABLE -->
-                <img src="https://i.postimg.cc/KYZPWGsG/IMG-7082.jpg" 
-                     alt="Logo WhatsApp" 
-                     class="w-6 h-6 mr-3 object-cover rounded-md">
-                Telegram
+            <a href="https://t.me/+knL2BEQwavBiZDI0" class="link-button">
+                <img src="https://i.postimg.cc/KYZPWGsG/IMG-7082.jpg" class="icon"> Telegram
             </a>
 
 
 
-<!-- Bouton 5:Pinterest  -->
-            <a href="https://pin.it/6muCZkrNS" target="_blank"
-               class="link-button flex items-center justify-center w-full p-4 bg-black text-white font-semibold rounded-xl hover:text-white">
-                <!-- LOGO pinterest MODIFIABLE -->
-                <img src="https://i.postimg.cc/6q02nnt2/IMG-7079.jpg" 
-                     alt="Logo WhatsApp" 
-                     class="w-6 h-6 mr-3 object-cover rounded-md">
-                Pinterest
+            <a href="https://pin.it/6muCZkrNS" class="link-button">
+                <img src="https://i.postimg.cc/6q02nnt2/IMG-7079.jpg" class="icon"> Pinterest
             </a>
 
 
 
 
-
-
-
-
-
-            <!-- Bouton 6: E-mail de Contact (Accent rose pour l'appel à l'action) -->
-            <a href="mailto:iamivanntresor999@gmail.com"
-               class="link-button flex items-center justify-center w-full p-4 bg-accent-fuchsia text-white font-bold rounded-xl shadow-lg border-accent-fuchsia hover:bg-pink-600">
-                <!-- Icône E-mail SVG -->
-                <svg class="w-6 h-6 mr-3" fill="none" stroke="#FFFFFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            <a href="mailto:iamivanntresor999@gmail.com" class="email-button">
+                <svg class="mail-icon" fill="none" stroke="#fff" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
-                Contact Pro (E-mail)
+                Contact Pro (Email)
             </a>
 
-        </main>
-        
-        <!-- Pied de page/Crédits -->
-        <footer class="pt-8 text-center text-gray-700 text-sm">
-            <span class="text-gray-500">Propulsé par</span> <span class="font-bold text-accent-fuchsia">𝙏𝙧𝙞𝙥𝙡𝙚 𝙣𝙞𝙣𝙚 𝟗𝟗𝟗</span>
+   </main>
+
+
+
+
+
+
+        <footer class="footer">
+            Propulsé par <span class="highlight">Triple nine 999</span>
         </footer>
+
+
+
+
 
     </div>
 
@@ -171,6 +101,118 @@
 
 
 
+
+
+
+
+    <!-- PUBLICITÉS -->
+    <section class="profile-card ads">
+
+        <h2 class="section-title">🔥 Publicités / Infos 🔥</h2>
+
+
+
+        <p class="ads-text">— Commande tes Polaroids maintenant 📸 —</p>
+
+
+
+        <p class="ads-text">— Promo spéciale toute la semaine —</p>
+
+
+      
+
+
+        <h2 class="section-title">🍿 Nos Offres Spéciales Netflix 📺</h2>
+        <p class="subtitle">Des comptes Premium à prix imbattables !</p>
+
+
+
+
+
+
+
+
+
+        <div class="products">
+
+            <!-- Produit 1 -->
+            <div class="product">
+                <img src="https://i.postimg.cc/3rGBhpM7/IMG_2647.jpg" class="product-img">
+                <div class="overlay-text">
+                    COMPTE NETFLIX <br><span class="highlight big">1 MOIS</span>
+                </div>
+                <div class="product-body">
+                    <p class="price">2000 FCFA</p>
+                    <a href="https://wa.me/2250500090411?text=Netflix 1 mois" class="buy-button">Acheter</a>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="product">
+                <img src="https://i.postimg.cc/x8LyPrGg/IMG_2395.jpg" class="product-img">
+                <div class="overlay-text">
+                    COMPTE PRIME <br><span class="highlight big">1 MOIS</span>
+                </div>
+                <div class="product-body">
+                    <p class="price">2000 FCFA</p>
+                    <a href="https://wa.me/2250500090411?text=Netflix 3 mois" class="buy-button">Acheter</a>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Produit 3 -->
+            <div class="product">
+                <img src="https://i.postimg.cc/cHDmTmmL/IMG_4456.jpg" class="product-img">
+                <div class="overlay-text">
+                    POLAROID Moyen  format<br><span class="highlight big">8 PCS</span>
+                </div>
+                <div class="product-body">
+                    <p class="price">2000 FCFA</p>
+                    <a href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" class="buy-button">Acheter</a>
+
+                </div>
+            </div>
+
+
+        <!-- Produit 4 -->
+            <div class="product">
+                <img src="https://i.postimg.cc/nLGT9Z9K/IMG_4468.jpg" class="product-img">
+                <div class="overlay-text">
+                    POLAROID Mini <br>format<br><span class="highlight big">15 PCS</span>
+                </div>
+                <div class="product-body">
+                    <p class="price">2000 FCFA</p>
+                    <a href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" class="buy-button">Acheter</a>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+<p class="ads-text">— Info : <span class="highlight">Je ne suis pas l’auteur de tous les produits proposés, mais je garantis leur fiabilité. En cas de souci, je m’engage à rembourser intégralement la somme. </span> —</p>
+
+
+
+
+
+
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
-
