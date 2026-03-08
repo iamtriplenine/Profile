@@ -390,32 +390,6 @@ h2 {
 }
 
 
-@media (max-width: 820px){
-
-.hero-top{
-    grid-template-columns: 140px 1fr;
-    gap:16px;
-    align-items:center;
-}
-
-/* photo */
-.avatar-wrap{
-    grid-row:1 / span 2;
-}
-
-/* texte à droite de la photo */
-.hero-content{
-    text-align:left;
-}
-
-/* tout le reste passe en dessous */
-.tagline,
-.bio,
-.hero-actions{
-    grid-column:1 / -1;
-}
-
-}
 
 
 
