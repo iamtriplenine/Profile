@@ -398,23 +398,24 @@ h2 {
     align-items:center;
 }
 
+/* photo */
+.avatar-wrap{
+    grid-row:1 / span 2;
+}
+
+/* texte à droite de la photo */
 .hero-content{
     text-align:left;
 }
 
-.profile-img{
-    width:140px;
-    height:140px;
-}
-
-.status-badge{
-    display:block;
-    margin-top:10px;
-    font-size:12px;
+/* tout le reste passe en dessous */
+.tagline,
+.bio,
+.hero-actions{
+    grid-column:1 / -1;
 }
 
 }
-
 
 
 
