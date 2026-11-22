@@ -58,6 +58,18 @@ a { color: inherit; }
     to   { transform: translateX(-50%); }
 }
 
+/* Rayures verticales : c'est elles que la goutte d'eau déforme */
+.stripes {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg,
+        #ff7a1a 0 46px, #0a0a0a 46px 92px, #ffb067 92px 138px, #1d1d1d 138px 184px);
+    opacity: 0.85;
+    animation: drift 24s linear infinite;
+}
+@keyframes drift { from { background-position-x: 0; } to { background-position-x: 368px; } }
+.backdrop .glow { display: none; }
+
 /* ---------- Structure ---------- */
 .page {
     width: min(760px, calc(100% - 28px));
@@ -68,18 +80,15 @@ a { color: inherit; }
 
 .section { margin-top: 44px; }
 
-/* Cartes en verre : fond quasi transparent, c'est liquid-glass.js qui fait le reste */
+/* Cartes en verre : 100 % transparentes, la déformation vient de liquid-glass.js */
 .glass-card {
     position: relative;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radius);
-    background: rgba(10, 10, 10, 0.35);          /* repli si pas de verre */
-    -webkit-backdrop-filter: blur(14px) saturate(1.5);
-    backdrop-filter: blur(14px) saturate(1.5);
+    background: transparent;
     padding: 24px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
-/* quand le verre est actif, on retire le repli (la lib fournit son propre filtre) */
-.glass-card.lg-glass { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 .hero { margin-bottom: 0; }
 
@@ -110,7 +119,7 @@ a { color: inherit; }
     padding: 6px 11px;
     border-radius: 999px;
     border: 1px solid var(--line);
-    background: rgba(0, 0, 0, 0.45);
+    background: transparent;
 }
 .status-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
 
@@ -237,9 +246,10 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 
 .product-card {
-    background: rgba(12, 12, 12, 0.72);
-    border: 1px solid var(--line);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 24px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -260,11 +270,9 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
     font-size: 0.9rem;
     color: #fff;
     border-radius: 999px;
-    background: rgba(0, 0, 0, 0.35);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    text-shadow: 0 1px 8px rgba(0,0,0,.6);
 }
-.price-chip.lg-glass { background: transparent; }
 
 .product-content { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
 .product-content p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; flex: 1; }
@@ -296,7 +304,7 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 /* ---------- Infos ---------- */
 .mini-card { margin-top: 44px; display: grid; gap: 18px; }
 .mini-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.mini-info > div { padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: rgba(0, 0, 0, 0.3); }
+.mini-info > div { padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; }
 .mini-label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; }
 .mail { font-size: 0.82rem; word-break: break-all; }
 
@@ -316,11 +324,8 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
     padding: 8px;
     border-radius: 999px;
     border: 1px solid var(--line);
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(14px) saturate(1.5);
-    backdrop-filter: blur(14px) saturate(1.5);
+    background: transparent;
 }
-.dock.lg-glass { background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 .dock a, .dock button {
     border: none;
@@ -369,6 +374,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .marquee { animation: none; }
+    .marquee, .stripes { animation: none; }
     html { scroll-behavior: auto; }
 }
