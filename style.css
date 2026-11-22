@@ -49,24 +49,14 @@ a { color: inherit; }
 }
 .marquee span { padding-right: 0; }
 
-.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.16); animation: slide 38s linear infinite; }
-.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.14); animation: slide 46s linear infinite reverse; }
-.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.04); animation: slide 54s linear infinite; }
+.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.32); animation: slide 38s linear infinite; }
+.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5); animation: slide 46s linear infinite reverse; }
+.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.1); animation: slide 54s linear infinite; }
 
 @keyframes slide {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
-
-/* Fines lignes verticales discrètes : juste de quoi voir la goutte d'eau plier */
-.stripes {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(90deg,
-        rgba(255, 122, 26, 0.22) 0 1px, transparent 1px 48px);
-    animation: drift 30s linear infinite;
-}
-@keyframes drift { from { background-position-x: 0; } to { background-position-x: 480px; } }
 
 /* ---------- Structure ---------- */
 .page {
@@ -372,6 +362,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .marquee, .stripes { animation: none; }
+    .marquee { animation: none; }
     html { scroll-behavior: auto; }
 }
