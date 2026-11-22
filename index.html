@@ -1,75 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-
-    <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Triple Nine | Profil</title>
     <meta name="description" content="Profil officiel de Triple Nine : réseaux, contact pro et offres spéciales." />
+    <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="Triple Nine | @999" />
+    <meta property="og:description" content="Tous mes liens, mon contact pro et mes offres du moment." />
+    <meta property="og:image" content="https://i.postimg.cc/wx2dwhBV/IMG_3106.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-
-        <meta property="og:image" content="https://i.postimg.cc/wx2dwhBV/IMG_3106.jpg">
 </head>
-
-
-
-
-
-    
 <body>
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
+    <!-- Décor fixe : c'est lui que le verre liquide déforme quand on fait défiler -->
+    <div class="backdrop" aria-hidden="true">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="marquee marquee-a"><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span></div>
+        <div class="marquee marquee-b"><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span></div>
+        <div class="marquee marquee-c"><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span></div>
+    </div>
 
     <main class="page">
-        <section class="card hero-card">
+
+        <!-- HERO -->
+        <section class="glass-card hero" data-glass="hero">
             <div class="hero-top">
                 <div class="avatar-wrap">
                     <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" alt="Photo de profil Triple Nine" class="profile-img" />
-                    <span class="status-badge">● En ligne</span>
+                    <span class="status-badge"><i></i>En ligne</span>
                 </div>
+                <div class="hero-heading">
+                    <p class="eyebrow">Profil officiel</p>
+                    <h1>@999</h1>
+                    <p class="tagline">Créateur · Contact · Bons plans</p>
+                </div>
+            </div>
 
-               <div class="hero-content">
-    <div class="hero-heading">
-        <p class="eyebrow">Profil officiel</p>
-        <h1>@999</h1>
-        <p class="tagline">Créateur • Contact • Bons plans • Commandes rapides</p>
-    </div>
+            <p class="bio">Ici tu retrouves tous mes liens, mon contact pro et mes offres du moment. Clique, découvre, commande.</p>
 
-    <div class="hero-details">
-        <p class="bio">
-            Ici tu retrouves tous mes liens, mon contact pro et mes offres du moment.
-            Clique, découvre, commande.
-        </p>
-
-        <div class="hero-actions">
-            <a href="mailto:iamivanntresor999@gmail.com" class="btn btn-primary">Contact Pro</a>
-            <button class="btn btn-secondary" id="shareBtn" type="button">Partager le profil</button>
-        </div>
-    </div>
-</div>
-
-
-                
+            <div class="hero-actions">
+                <a href="mailto:iamivanntresor999@gmail.com" class="btn btn-primary">Contact Pro</a>
+                <button class="btn btn-ghost" id="shareBtn" type="button">Partager le profil</button>
             </div>
 
             <div class="stats-grid">
-                <div class="stat-box">
-                    <span class="stat-value">5+</span>
-                    <span class="stat-label">Réseaux</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-value">4</span>
-                    <span class="stat-label">Offres</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-value" id="visitorCount">999</span>
-                    <span class="stat-label">Visites</span>
-                </div>
+                <div class="stat-box"><span class="stat-value">5+</span><span class="stat-label">Réseaux</span></div>
+                <div class="stat-box"><span class="stat-value">4</span><span class="stat-label">Offres</span></div>
+                <div class="stat-box"><span class="stat-value" id="visitorCount">999</span><span class="stat-label">Visites</span></div>
             </div>
         </section>
 
-        <section class="card">
+        <!-- RÉSEAUX -->
+        <section class="section" id="reseaux">
             <div class="section-head">
                 <div>
                     <p class="section-kicker">Réseaux sociaux</p>
@@ -79,157 +65,109 @@
             </div>
 
             <div class="links-grid">
-                <a href="https://t.me/ivanntresor" class="social-card" target="_blank" rel="noopener noreferrer">
-
-
-                    <span class="social-icon">
-                   <img src="https://i.postimg.cc/90gBGBv5/IMG_3260.png">
-                   </span>
-
-
-                    <div>
-                        <strong>Telegram</strong>
-                        <small>Discussion directe</small>
-                    </div>
+                <a href="https://t.me/ivanntresor" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
+                    <span class="social-icon"><img src="https://i.postimg.cc/90gBGBv5/IMG_3260.png" alt="" /></span>
+                    <div><strong>Telegram</strong><small>Discussion directe</small></div>
                     <span class="go">↗</span>
                 </a>
-
-                <a href="https://wa.me/qr/6MHESZQQ5U5PN1" class="social-card" target="_blank" rel="noopener noreferrer">
-
-
-                    <span class="social-icon">
-                      <img src="https://i.postimg.cc/0jXCpCLy/IMG_3258.png">
-                    </span> 
-                    
-                    
-                    <div>
-                        <strong>WhatsApp</strong>
-                        <small>           </small>
-                    </div>
+                <a href="https://wa.me/qr/6MHESZQQ5U5PN1" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
+                    <span class="social-icon"><img src="https://i.postimg.cc/0jXCpCLy/IMG_3258.png" alt="" /></span>
+                    <div><strong>WhatsApp</strong><small>Commande rapide</small></div>
                     <span class="go">↗</span>
                 </a>
-
-                <a href="https://www.instagram.com/ivann_tresor_official" class="social-card" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon">
-                     <img src="https://i.postimg.cc/D0pcqctv/IMG_3259.png">
-                     </span>
-                    <div>
-                        <strong>Instagram</strong>
-                        <small>         </small>
-                    </div>
+                <a href="https://www.instagram.com/ivann_tresor_official" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
+                    <span class="social-icon"><img src="https://i.postimg.cc/D0pcqctv/IMG_3259.png" alt="" /></span>
+                    <div><strong>Instagram</strong><small>@ivann_tresor_official</small></div>
                     <span class="go">↗</span>
                 </a>
-
-                <a href="https://www.tiktok.com/@ivann_tresor_999_off" class="social-card" target="_blank" rel="noopener noreferrer">
-                    
-                     <span class="social-icon">
-                      <img src="https://i.postimg.cc/Sj0fTKN1/IMG_3264.png">
-                    </span>
-
-                    <div>
-                        <strong>TikTok</strong>
-                        <small>               </small>
-                    </div>
+                <a href="https://www.tiktok.com/@ivann_tresor_999_off" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
+                    <span class="social-icon"><img src="https://i.postimg.cc/Sj0fTKN1/IMG_3264.png" alt="" /></span>
+                    <div><strong>TikTok</strong><small>@ivann_tresor_999_off</small></div>
                     <span class="go">↗</span>
                 </a>
-
-                  <a href="https://pin.it/6muCZkrNS" class="social-card" target="_blank" rel="noopener noreferrer">
-                    
-
-                     <span class="social-icon">
-                      <img src="https://i.postimg.cc/qgfxb7Mb/IMG_3265.png">
-                    </span>
-
-
-                    <div>
-                        <strong>Pinterest</strong>
-                        <small>     </small>
-                    </div>
+                <a href="https://pin.it/6muCZkrNS" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
+                    <span class="social-icon"><img src="https://i.postimg.cc/qgfxb7Mb/IMG_3265.png" alt="" /></span>
+                    <div><strong>Pinterest</strong><small>Inspirations</small></div>
                     <span class="go">↗</span>
                 </a>
-
-                <a href="mailto:iamivanntresor999@gmail.com" class="social-card social-card--accent">
-                    <span class="social-icon">
-                     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
-                    </span>
-                    <div>
-                        <strong>Email pro</strong>
-                        <small>Réponse rapide</small>
-                    </div>
+                <a href="mailto:iamivanntresor999@gmail.com" class="glass-card social-card accent" data-glass="social" >
+                    <span class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" /></span>
+                    <div><strong>Email pro</strong><small>Réponse rapide</small></div>
                     <span class="go">↗</span>
                 </a>
             </div>
         </section>
 
-        <section class="card">
-            <div class="section-head section-head--stack-mobile">
+        <!-- OFFRES -->
+        <section class="section" id="offres">
+            <div class="section-head">
                 <div>
                     <p class="section-kicker">Promotions</p>
                     <h2>Offres spéciales</h2>
                 </div>
+            </div>
 
-                <div class="toolbar">
-                    <input id="searchInput" class="search-input" type="text" placeholder="Rechercher une offre..." />
+            <div class="toolbar">
+                <input id="searchInput" class="search-input" type="text" placeholder="Rechercher une offre..." />
+                <div class="filters">
                     <button class="filter-btn active" data-filter="all" type="button">Tout</button>
                     <button class="filter-btn" data-filter="streaming" type="button">Streaming</button>
                     <button class="filter-btn" data-filter="photo" type="button">Polaroid</button>
                 </div>
             </div>
 
-            <div class="promo-banner">
-                <p>🔥 Promo spéciale toute la semaine • Commande rapide par WhatsApp</p>
-            </div>
+            <div class="promo-banner">🔥 Promo spéciale toute la semaine · Commande rapide par WhatsApp</div>
 
             <div class="products-grid" id="productsGrid">
                 <article class="product-card" data-category="streaming" data-name="Netflix 1 mois">
-                    <img src="https://i.postimg.cc/3rGBhpM7/IMG_2647.jpg" alt="Compte Netflix 1 mois" class="product-img" />
+                    <div class="product-media">
+                        <img src="https://i.postimg.cc/3rGBhpM7/IMG_2647.jpg" alt="Compte Netflix 1 mois" class="product-img" loading="lazy" />
+                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
+                    </div>
                     <div class="product-content">
                         <span class="pill">Streaming</span>
-                        <h3>Compte Netflix • 1 mois</h3>
+                        <h3>Compte Netflix · 1 mois</h3>
                         <p>Accès premium à prix doux.</p>
-                        <div class="product-bottom">
-                            <strong>2000 FCFA</strong>
-                            <a href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
-                        </div>
+                        <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
                     </div>
                 </article>
 
                 <article class="product-card" data-category="streaming" data-name="Prime 1 mois">
-                    <img src="https://i.postimg.cc/x8LyPrGg/IMG_2395.jpg" alt="Compte Prime 1 mois" class="product-img" />
+                    <div class="product-media">
+                        <img src="https://i.postimg.cc/x8LyPrGg/IMG_2395.jpg" alt="Compte Prime 1 mois" class="product-img" loading="lazy" />
+                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
+                    </div>
                     <div class="product-content">
                         <span class="pill">Streaming</span>
-                        <h3>Compte Prime • 1 mois</h3>
+                        <h3>Compte Prime · 1 mois</h3>
                         <p>Compte premium prêt à utiliser.</p>
-                        <div class="product-bottom">
-                            <strong>2000 FCFA</strong>
-                            <a href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
-                        </div>
+                        <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
                     </div>
                 </article>
 
                 <article class="product-card" data-category="photo" data-name="Polaroid moyen format">
-                    <img src="https://i.postimg.cc/cHDmTmmL/IMG_4456.jpg" alt="Polaroid moyen format" class="product-img" />
+                    <div class="product-media">
+                        <img src="https://i.postimg.cc/cHDmTmmL/IMG_4456.jpg" alt="Polaroid moyen format" class="product-img" loading="lazy" />
+                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
+                    </div>
                     <div class="product-content">
                         <span class="pill">Polaroid</span>
-                        <h3>Polaroid moyen format • 8 pcs</h3>
+                        <h3>Polaroid moyen format · 8 pcs</h3>
                         <p>Impression propre pour tes meilleurs souvenirs.</p>
-                        <div class="product-bottom">
-                            <strong>2000 FCFA</strong>
-                            <a href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
-                        </div>
+                        <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
                     </div>
                 </article>
 
                 <article class="product-card" data-category="photo" data-name="Polaroid mini format">
-                    <img src="https://i.postimg.cc/nLGT9Z9K/IMG_4468.jpg" alt="Polaroid mini format" class="product-img" />
+                    <div class="product-media">
+                        <img src="https://i.postimg.cc/nLGT9Z9K/IMG_4468.jpg" alt="Polaroid mini format" class="product-img" loading="lazy" />
+                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
+                    </div>
                     <div class="product-content">
                         <span class="pill">Polaroid</span>
-                        <h3>Polaroid mini format • 15 pcs</h3>
+                        <h3>Polaroid mini format · 15 pcs</h3>
                         <p>Petit format, rendu stylé, parfait à offrir.</p>
-                        <div class="product-bottom">
-                            <strong>2000 FCFA</strong>
-                            <a href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
-                        </div>
+                        <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
                     </div>
                 </article>
             </div>
@@ -240,31 +178,34 @@
             </p>
         </section>
 
-        <section class="card mini-card">
+        <!-- INFOS -->
+        <section class="glass-card mini-card" data-glass="hero">
             <div>
                 <p class="section-kicker">Infos utiles</p>
                 <h2>Disponibilité</h2>
             </div>
             <div class="mini-info">
-                <div>
-                    <span class="mini-label">Heure locale</span>
-                    <strong id="liveClock">--:--:--</strong>
-                </div>
-                <div>
-                    <span class="mini-label">Email</span>
-                    <strong>iamivanntresor999@gmail.com</strong>
-                </div>
+                <div><span class="mini-label">Heure locale</span><strong id="liveClock">--:--:--</strong></div>
+                <div><span class="mini-label">Email</span><strong class="mail">iamivanntresor999@gmail.com</strong></div>
             </div>
         </section>
 
         <footer class="footer">
             <p>Propulsé par <span>Triple Nine 999</span></p>
-            <button class="back-top" id="backTopBtn" type="button">Retour en haut ↑</button>
         </footer>
     </main>
 
-    <div class="toast" id="toast"></div>
+    <!-- Dock flottant en verre liquide -->
+    <nav class="dock" id="dock" data-glass="dock" aria-label="Navigation rapide">
+        <a href="#reseaux">Réseaux</a>
+        <a href="#offres">Offres</a>
+        <a href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer" class="dock-cta">WhatsApp</a>
+        <button id="backTopBtn" type="button" aria-label="Retour en haut">↑</button>
+    </nav>
 
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="liquid-glass.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
