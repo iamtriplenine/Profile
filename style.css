@@ -58,17 +58,15 @@ a { color: inherit; }
     to   { transform: translateX(-50%); }
 }
 
-/* Rayures verticales : c'est elles que la goutte d'eau déforme */
+/* Fines lignes verticales discrètes : juste de quoi voir la goutte d'eau plier */
 .stripes {
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(90deg,
-        #ff7a1a 0 46px, #0a0a0a 46px 92px, #ffb067 92px 138px, #1d1d1d 138px 184px);
-    opacity: 0.85;
-    animation: drift 24s linear infinite;
+        rgba(255, 122, 26, 0.22) 0 1px, transparent 1px 48px);
+    animation: drift 30s linear infinite;
 }
-@keyframes drift { from { background-position-x: 0; } to { background-position-x: 368px; } }
-.backdrop .glow { display: none; }
+@keyframes drift { from { background-position-x: 0; } to { background-position-x: 480px; } }
 
 /* ---------- Structure ---------- */
 .page {
