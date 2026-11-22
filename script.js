@@ -99,7 +99,7 @@ function initLiquidGlass() {
         glassThickness: 80,
         bezelWidth: 40,
         refractiveIndex: 3.0,      // fort = vraie goutte d'eau
-        scaleRatio: 1,
+        scaleRatio: 1.6,
         blur: 0.3,                 // quasi aucun flou : on veut la déformation, pas le flou
         specularOpacity: 0.5,
         specularSaturation: 4,
