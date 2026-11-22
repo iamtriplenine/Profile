@@ -96,31 +96,33 @@ function initLiquidGlass() {
     // Réglages communs : verre sombre, reflet orangé discret
     const base = {
         surface: 'convex_squircle',
-        glassThickness: 60,
-        bezelWidth: 22,
-        refractiveIndex: 1.9,
+        glassThickness: 80,
+        bezelWidth: 40,
+        refractiveIndex: 3.0,      // fort = vraie goutte d'eau
         scaleRatio: 1,
-        blur: 0.4,
-        specularOpacity: 0.45,
-        specularSaturation: 2,
-        innerShadowColor: 'rgba(255, 150, 60, 0.35)',
-        innerShadowBlur: 18,
-        innerShadowSpread: -6,
-        tintColor: '#0a0a0a',
-        tintOpacity: 0.4,
-        outerShadowBlur: 30,
+        blur: 0.3,                 // quasi aucun flou : on veut la déformation, pas le flou
+        specularOpacity: 0.5,
+        specularSaturation: 4,
+        innerShadowColor: '#ffffff',
+        innerShadowBlur: 20,
+        innerShadowSpread: -5,
+        tintColor: '#ffffff',
+        tintOpacity: 0.06,         // verre presque invisible
+        outerShadowBlur: 24,
         fallbackBlur: 14,
-        interactive: false // false = le scroll tactile n'est jamais bloqué
+        interactive: false
     };
 
     const presets = {
-        hero:   { radius: 28, bezelWidth: 26, refractiveIndex: 2.1 },
-        social: { radius: 22, bezelWidth: 16, refractiveIndex: 1.8, tintOpacity: 0.45 },
-        chip:   { radius: 20, bezelWidth: 10, refractiveIndex: 2.4, tintOpacity: 0.25, glassThickness: 40 },
-        // le dock est la seule pièce « gélatine » : elle gonfle et rebondit au toucher
-        dock:   { radius: 999, bezelWidth: 20, refractiveIndex: 2.2, tintOpacity: 0.35, interactive: true, pressScale: 1.05 }
+        hero:    { radius: 36, bezelWidth: 36 },
+        social:  { radius: 26, bezelWidth: 24 },
+        product: { radius: 28, bezelWidth: 28 },
+        chip:    { radius: 20, bezelWidth: 14, glassThickness: 50 },
+        // le dock gonfle et rebondit au toucher
+        dock:    { radius: 999, bezelWidth: 30, interactive: true, pressScale: 1.06 }
     };
 
+    document.querySelectorAll('.product-card').forEach(c => c.dataset.glass = 'product');
     document.querySelectorAll('[data-glass]').forEach(el => {
         const preset = presets[el.dataset.glass] || {};
         LiquidGlass.apply(el, { ...base, ...preset });
