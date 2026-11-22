@@ -35,8 +35,8 @@ a { color: inherit; }
 }
 
 .glow { position: absolute; border-radius: 50%; filter: blur(90px); }
-.glow-1 { width: 420px; height: 420px; top: -120px; left: -120px; background: rgba(255, 122, 26, 0.32); }
-.glow-2 { width: 380px; height: 380px; bottom: -140px; right: -140px; background: rgba(255, 90, 0, 0.2); }
+.glow-1 { width: 420px; height: 420px; top: -120px; left: -120px; background: rgba(255, 122, 26, 0.22); }
+.glow-2 { width: 380px; height: 380px; bottom: -140px; right: -140px; background: rgba(255, 90, 0, 0.14); }
 
 .marquee {
     position: absolute;
@@ -49,9 +49,9 @@ a { color: inherit; }
 }
 .marquee span { padding-right: 0; }
 
-.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.9); animation: slide 38s linear infinite; }
-.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.35); animation: slide 46s linear infinite reverse; }
-.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.12); animation: slide 54s linear infinite; }
+.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.16); animation: slide 38s linear infinite; }
+.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.14); animation: slide 46s linear infinite reverse; }
+.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.04); animation: slide 54s linear infinite; }
 
 @keyframes slide {
     from { transform: translateX(0); }
