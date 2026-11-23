@@ -12,7 +12,235 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+:root {
+    --bg: #050505;
+    --text: #f4f1ec;
+    --muted: #9a958d;
+    --line: rgba(255, 255, 255, 0.09);
+    --orange: #ff7a1a;
+    --orange-2: #ff9a45;
+    --orange-soft: rgba(255, 122, 26, 0.16);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Space Grotesk', Inter, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+a { color: inherit; }
+
+/* ---------- Décor (ce que le verre déforme) ---------- */
+.backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+.glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+.glow-1 { width: 420px; height: 420px; top: -120px; left: -120px; background: rgba(255, 122, 26, 0.22); }
+.glow-2 { width: 380px; height: 380px; bottom: -140px; right: -140px; background: rgba(255, 90, 0, 0.14); }
+
+.marquee { position: absolute; left: 0; display: flex; white-space: nowrap; font-weight: 700; line-height: 1; will-change: transform; }
+
+.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.32); animation: slide 38s linear infinite; }
+.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5); animation: slide 46s linear infinite reverse; }
+.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.1); animation: slide 54s linear infinite; }
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ---------- Structure ---------- */
+.page { width: min(760px, calc(100% - 28px)); margin: 24px auto 120px; position: relative; z-index: 1; }
+.section { margin-top: 44px; }
+
+/* Cartes en verre : 100 % transparentes, la déformation vient du liquid glass.
+   L'arrondi des coins est géré par la lib (radius: 60). */
+.glass-card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
+    padding: 28px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+}
+
+.hero-top { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
+.avatar-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+.profile-img {
+    width: 112px; height: 112px; object-fit: cover; border-radius: 50%;
+    border: 2px solid var(--orange);
+    box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.14), 0 12px 40px rgba(255, 122, 26, 0.3);
+}
+
+.status-badge {
+    display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text);
+    padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); background: transparent;
+}
+.status-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
+
+.eyebrow, .section-kicker {
+    margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.16em;
+    font-size: 11px; color: var(--orange); font-weight: 700;
+}
+
+h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); line-height: 1; margin-bottom: 10px; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 4.5vw, 1.9rem); margin-bottom: 0; letter-spacing: -0.01em; }
+h3 { font-size: 1.05rem; margin-bottom: 6px; }
+
+.tagline { color: var(--text); font-weight: 500; margin: 0; opacity: 0.9; }
+.bio { color: var(--muted); line-height: 1.65; margin: 22px 0; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- Boutons ---------- */
+.btn, .ghost-btn, .filter-btn, .buy, .dock a, .dock button {
+    font: inherit; cursor: pointer; text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.btn { border: none; padding: 14px 20px; border-radius: 16px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.btn-primary { background: var(--orange); color: #120800; box-shadow: 0 10px 28px rgba(255, 122, 26, 0.3); }
+.btn-ghost, .ghost-btn, .filter-btn { background: rgba(255, 255, 255, 0.05); color: var(--text); border: 1px solid var(--line); }
+.btn-ghost { padding: 14px 20px; border-radius: 16px; font-weight: 600; }
+.btn:hover, .ghost-btn:hover, .filter-btn:hover, .buy:hover { transform: translateY(-2px); }
+.btn-primary:hover { background: var(--orange-2); }
+
+/* ---------- Stats ---------- */
+.stats-grid { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); padding-top: 18px; }
+.stat-box { text-align: center; }
+.stat-box + .stat-box { border-left: 1px solid var(--line); }
+.stat-value { display: block; font-size: 1.6rem; font-weight: 700; color: var(--orange); }
+.stat-label { font-size: 0.8rem; color: var(--muted); }
+
+/* ---------- Titres de section ---------- */
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.ghost-btn { padding: 10px 14px; border-radius: 12px; font-size: 0.85rem; }
+
+/* ---------- Réseaux ---------- */
+.links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+.social-card {
+    text-decoration: none; padding: 16px; display: grid;
+    grid-template-columns: auto 1fr auto; gap: 12px; align-items: center;
+    transition: transform 0.25s ease;
+}
+.social-card:hover { transform: translateY(-3px); }
+.social-card strong { display: block; }
+.social-card small { color: var(--muted); font-size: 0.78rem; word-break: break-all; }
+.social-card.accent { border-color: rgba(255, 122, 26, 0.45); }
+
+.social-icon { width: 42px; height: 42px; display: grid; place-items: center; }
+.social-icon img { width: 40px; height: 40px; object-fit: contain; }
+.go { font-size: 20px; color: var(--orange); }
+
+/* ---------- Offres ---------- */
+.toolbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.search-input {
+    width: 100%; padding: 14px 16px; border-radius: 14px; outline: none; font: inherit;
+    color: var(--text); background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line);
+}
+.search-input:focus { border-color: var(--orange); }
+
+.filter-btn { padding: 10px 16px; border-radius: 999px; font-size: 0.9rem; }
+.filter-btn.active { background: var(--orange-soft); border-color: rgba(255, 122, 26, 0.6); color: var(--orange-2); }
+
+.promo-banner {
+    margin-bottom: 18px; border: 1px dashed rgba(255, 122, 26, 0.5); background: rgba(255, 122, 26, 0.07);
+    border-radius: 16px; padding: 13px 16px; font-weight: 500; font-size: 0.92rem;
+}
+
+.products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+.product-card {
+    background: transparent; border: 1px solid rgba(255, 255, 255, 0.18);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.product-card:hover { transform: translateY(-4px); border-color: rgba(255, 122, 26, 0.45); }
+
+.product-media { position: relative; }
+.product-img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; display: block; }
+
+.price-chip {
+    position: absolute; left: 12px; bottom: 12px; padding: 9px 16px;
+    font-weight: 700; font-size: 0.9rem; color: #fff;
+    background: transparent; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+
+.product-content { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.product-content p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; flex: 1; }
+
+.pill {
+    align-self: flex-start; padding: 5px 10px; border-radius: 999px; background: var(--orange-soft);
+    color: var(--orange-2); font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; margin-bottom: 10px;
+}
+
+.buy { text-align: center; background: var(--orange); color: #120800; padding: 12px 14px; border-radius: 14px; font-weight: 700; }
+
+.trust-note { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin: 20px 4px 0; }
+
+/* ---------- Infos ---------- */
+.mini-card { margin-top: 44px; display: grid; gap: 18px; }
+.mini-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.mini-info > div { padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; }
+.mini-label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; }
+.mail { font-size: 0.82rem; word-break: break-all; }
+
+.footer { text-align: center; color: var(--muted); padding: 28px 0 0; font-size: 0.9rem; }
+.footer span { color: var(--orange); font-weight: 700; }
+
+/* ---------- Dock flottant ---------- */
+.dock {
+    position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%); z-index: 30; display: flex; align-items: center; gap: 4px;
+    padding: 8px; border: 1px solid var(--line); background: transparent;
+}
+
+.dock a, .dock button {
+    border: none; background: transparent; color: var(--text); padding: 11px 16px;
+    border-radius: 999px; font-size: 0.9rem; font-weight: 500; position: relative; z-index: 2;
+}
+.dock a:hover, .dock button:hover { background: rgba(255, 255, 255, 0.08); }
+.dock .dock-cta { background: var(--orange); color: #120800; font-weight: 700; }
+.dock .dock-cta:hover { background: var(--orange-2); }
+
+/* ---------- Toast ---------- */
+.toast {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: rgba(18, 18, 18, 0.92); color: var(--text); border: 1px solid rgba(255, 122, 26, 0.4);
+    border-radius: 14px; padding: 12px 18px; opacity: 0; pointer-events: none;
+    transition: 0.25s ease; z-index: 40; font-size: 0.9rem;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.hidden { display: none !important; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 620px) {
+    .glass-card { padding: 22px; }
+    .profile-img { width: 92px; height: 92px; }
+    .links-grid, .products-grid { grid-template-columns: 1fr; }
+    .hero-actions .btn { flex: 1; }
+    .mini-info { grid-template-columns: 1fr; }
+    .section-head .ghost-btn { align-self: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee { animation: none; }
+    html { scroll-behavior: auto; }
+}
+
+</style>
 </head>
 <body>
     <!-- Décor fixe : c'est lui que le verre liquide déforme quand on fait défiler -->
@@ -205,7 +433,503 @@
 
     <div class="toast" id="toast" role="status"></div>
 
-    <script src="liquid-glass.js"></script>
-    <script src="script.js"></script>
+    <script>
+/*!
+ * liquid-glass.js — effet Liquid Glass autonome (réfraction réelle de l'arrière-plan)
+ * Basé sur « Liquid Glass » © 2026 Archis Vaze, licence MIT.
+ * (La licence MIT impose de conserver cette ligne de copyright.)
+ *
+ * Utilisation :
+ *   Inclure ce fichier dans la page (balise script src="liquid-glass.js"), puis :
+ *   LiquidGlass.apply(document.querySelector('.ma-carte'));
+ *   LiquidGlass.apply(element, { radius: 40, refractiveIndex: 2.2, interactive: true });
+ *
+ * Tout ce qui se trouve DERRIÈRE l'élément (texte, images, listes qui défilent…)
+ * est déformé comme à travers une goutte d'eau / une lentille.
+ * Réfraction réelle : Chrome, Edge, Brave, Opera, Chrome Android.
+ * Safari / iPhone / Firefox : repli automatique sur un verre flouté (pas de déformation).
+ */
+(function (global) {
+  'use strict';
+
+  /* ------------------------------------------------------------------ */
+  /* Réglages par défaut (identiques à la démo d'origine)               */
+  /* ------------------------------------------------------------------ */
+  const DEFAULTS = {
+    radius: 60,              // arrondi des coins (px)
+    surface: 'convex_squircle', // profil du bord : convex_squircle | convex_circle | concave | lip
+    glassThickness: 80,      // épaisseur du verre
+    bezelWidth: 60,          // largeur du bord bombé (zone où la lumière est déviée)
+    refractiveIndex: 3.0,    // indice de réfraction (eau ≈ 1.33, verre ≈ 1.5 ; plus haut = plus déformé)
+    scaleRatio: 1.0,         // intensité globale de la déformation
+    blur: 0.3,               // flou de ce qui est derrière
+    specularOpacity: 0.5,    // intensité du reflet sur le bord
+    specularSaturation: 4,   // saturation des couleurs dans le reflet
+    specularAngle: Math.PI / 3, // direction de la lumière
+    innerShadowColor: '#ffffff',
+    innerShadowBlur: 20,
+    innerShadowSpread: -5,
+    tintColor: '#ffffff',
+    tintOpacity: 0.06,       // 0 → 1
+    outerShadowBlur: 24,
+    // Ajouts (absents de l'original)
+    interactive: true,       // déformation « liquide » au toucher / glisser
+    pressScale: 1.06,        // gonflement à l'appui
+    stretch: 0.0001,         // étirement en fonction de la vitesse du doigt
+    maxStretch: 0.12,        // étirement maximal
+    stiffness: 260,          // ressort : raideur
+    damping: 14,             // ressort : amortissement (plus bas = plus de rebond)
+    fallbackBlur: 14,        // flou utilisé quand la réfraction n'est pas supportée
+  };
+
+  /* ------------------------------------------------------------------ */
+  /* Physique de la réfraction                                          */
+  /* ------------------------------------------------------------------ */
+  const SURFACE_FNS = {
+    convex_squircle: (x) => Math.pow(1 - Math.pow(1 - x, 4), 0.25),
+    convex_circle: (x) => Math.sqrt(1 - (1 - x) * (1 - x)),
+    concave: (x) => 1 - Math.sqrt(1 - (1 - x) * (1 - x)),
+    lip: (x) => {
+      const convex = Math.pow(1 - Math.pow(1 - Math.min(x * 2, 1), 4), 0.25);
+      const concave = 1 - Math.sqrt(1 - (1 - x) * (1 - x)) + 0.1;
+      const t = 6 * x ** 5 - 15 * x ** 4 + 10 * x ** 3;
+      return convex * (1 - t) + concave * t;
+    },
+  };
+
+  // Loi de Snell-Descartes appliquée au profil du bord, échantillonnée.
+  function refractionProfile(thickness, bezel, heightFn, ior, samples = 128) {
+    const eta = 1 / ior;
+    const refract = (nx, ny) => {
+      const k = 1 - eta * eta * (1 - ny * ny);
+      if (k < 0) return null; // réflexion totale
+      const sq = Math.sqrt(k);
+      return [-(eta * ny + sq) * nx, eta - (eta * ny + sq) * ny];
+    };
+    const profile = new Float64Array(samples);
+    for (let i = 0; i < samples; i++) {
+      const x = i / samples;
+      const y = heightFn(x);
+      const dx = x < 1 ? 0.0001 : -0.0001;
+      const deriv = (heightFn(x + dx) - y) / dx;
+      const mag = Math.sqrt(deriv * deriv + 1);
+      const ref = refract(-deriv / mag, -1 / mag);
+      profile[i] = ref ? ref[0] * ((y * bezel + thickness) / ref[1]) : 0;
+    }
+    return profile;
+  }
+
+  // Parcourt uniquement les pixels du bord (le centre est plat → aucun calcul).
+  function forEachBezelPixel(w, h, r, bezel, cb) {
+    const rSq = r * r, r1Sq = (r + 1) ** 2, rBSq = Math.max(r - bezel, 0) ** 2;
+    const wB = w - r * 2, hB = h - r * 2, sqR = Math.sqrt(rSq), sqR1 = Math.sqrt(r1Sq);
+    const band = Math.ceil(r) + 1;
+    for (let y1 = 0; y1 < h; y1++) {
+      const inBandY = y1 < band || y1 >= h - band;
+      for (let x1 = 0; x1 < w; x1++) {
+        if (!inBandY && x1 >= band && x1 < w - band) { x1 = w - band - 1; continue; }
+        const x = x1 < r ? x1 - r : x1 >= w - r ? x1 - r - wB : 0;
+        const y = y1 < r ? y1 - r : y1 >= h - r ? y1 - r - hB : 0;
+        const dSq = x * x + y * y;
+        if (dSq > r1Sq || dSq < rBSq) continue;
+        const dist = Math.sqrt(dSq);
+        const op = dSq < rSq ? 1 : 1 - (dist - sqR) / (sqR1 - sqR);
+        if (op <= 0 || dist === 0) continue;
+        cb((y1 * w + x1) * 4, x / dist, y / dist, r - dist, op);
+      }
+    }
+  }
+
+  function makeCanvas(w, h) {
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    const ctx = c.getContext('2d');
+    return { c, ctx, img: ctx.createImageData(w, h) };
+  }
+
+  function displacementMap(w, h, r, bezel, profile, maxDisp) {
+    const { c, ctx, img } = makeCanvas(w, h);
+    const d = img.data;
+    for (let i = 0; i < d.length; i += 4) { d[i] = 128; d[i + 1] = 128; d[i + 2] = 0; d[i + 3] = 255; }
+    const S = profile.length;
+    forEachBezelPixel(w, h, r, bezel, (idx, cos, sin, fromSide, op) => {
+      const disp = profile[Math.min(((fromSide / bezel) * S) | 0, S - 1)] || 0;
+      d[idx] = (128 + ((-cos * disp) / maxDisp) * 127 * op + 0.5) | 0;
+      d[idx + 1] = (128 + ((-sin * disp) / maxDisp) * 127 * op + 0.5) | 0;
+    });
+    ctx.putImageData(img, 0, 0);
+    return c.toDataURL();
+  }
+
+  function specularMap(w, h, r, bezel, angle) {
+    const { c, ctx, img } = makeCanvas(w, h);
+    const d = img.data;
+    const sv = [Math.cos(angle), Math.sin(angle)];
+    forEachBezelPixel(w, h, r, bezel, (idx, cos, sin, fromSide, op) => {
+      const dot = Math.abs(cos * sv[0] - sin * sv[1]);
+      const edge = Math.sqrt(Math.max(0, 1 - (1 - fromSide) ** 2));
+      const coeff = dot * edge;
+      const col = (255 * coeff) | 0;
+      d[idx] = d[idx + 1] = d[idx + 2] = col;
+      d[idx + 3] = (col * coeff * op) | 0;
+    });
+    ctx.putImageData(img, 0, 0);
+    return c.toDataURL();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Support navigateur                                                 */
+  /* ------------------------------------------------------------------ */
+  // backdrop-filter: url(#svg) n'est rendu que par Chromium (pas Safari/WebKit, pas Firefox).
+  const SUPPORTS_REFRACTION = (() => {
+    const brands = navigator.userAgentData && navigator.userAgentData.brands;
+    if (brands) return brands.some((b) => /Chromium/.test(b.brand));
+    return /(Chrome|Chromium)\//.test(navigator.userAgent) && !/Firefox\//.test(navigator.userAgent);
+  })();
+
+  /* ------------------------------------------------------------------ */
+  /* Styles et conteneur SVG partagés (injectés une seule fois)         */
+  /* ------------------------------------------------------------------ */
+  let svgDefs = null;
+  function ensureShared() {
+    if (svgDefs) return;
+    const style = document.createElement('style');
+    style.textContent = `
+:where(.lg-glass){position:relative;isolation:isolate;border-radius:var(--lg-radius);
+  box-shadow:0 4px var(--lg-outer-blur) rgba(0,0,0,.18);transform-origin:center;will-change:transform}
+.lg-glass::before{content:'';position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 var(--lg-inner-blur) var(--lg-inner-spread) var(--lg-inner-color);
+  background-color:rgba(var(--lg-tint),var(--lg-tint-opacity))}
+.lg-glass::after{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;isolation:isolate;
+  backdrop-filter:var(--lg-filter);-webkit-backdrop-filter:var(--lg-filter)}
+:where(.lg-glass.lg-interactive){touch-action:none;user-select:none;-webkit-user-select:none}`;
+    document.head.appendChild(style);
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '0');
+    svg.setAttribute('height', '0');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('color-interpolation-filters', 'sRGB');
+    svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;pointer-events:none';
+    svgDefs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    svg.appendChild(svgDefs);
+    document.body.appendChild(svg);
+  }
+
+  const hexToRgb = (hex) => {
+    const n = hex.replace('#', '');
+    const f = n.length === 3 ? n.split('').map((c) => c + c).join('') : n;
+    return `${parseInt(f.slice(0, 2), 16)}, ${parseInt(f.slice(2, 4), 16)}, ${parseInt(f.slice(4, 6), 16)}`;
+  };
+
+  /* ------------------------------------------------------------------ */
+  /* Instance                                                           */
+  /* ------------------------------------------------------------------ */
+  let uid = 0;
+
+  class Glass {
+    constructor(el, options) {
+      ensureShared();
+      this.el = el;
+      this.o = Object.assign({}, DEFAULTS, options);
+      this.id = `lg-filter-${++uid}`;
+      this.filterEl = null;
+      this.lastSize = '';
+      el.classList.add('lg-glass');
+      this._applyCss();
+
+      if (SUPPORTS_REFRACTION) {
+        this.ro = new ResizeObserver(() => this._scheduleBuild());
+        this.ro.observe(el);
+        this._build();
+      } else {
+        el.style.setProperty('--lg-filter', `blur(${this.o.fallbackBlur}px) saturate(1.6)`);
+      }
+      if (this.o.interactive) this._initJelly();
+    }
+
+    /** Modifier des réglages à chaud : glass.update({ refractiveIndex: 1.8 }) */
+    update(options) {
+      Object.assign(this.o, options);
+      this._applyCss();
+      this.lastSize = '';
+      if (SUPPORTS_REFRACTION) this._build();
+    }
+
+    /** Retirer l'effet */
+    destroy() {
+      this.ro && this.ro.disconnect();
+      this.filterEl && this.filterEl.remove();
+      this._jellyOff && this._jellyOff();
+      this.el.classList.remove('lg-glass', 'lg-interactive');
+      ['--lg-radius', '--lg-outer-blur', '--lg-inner-blur', '--lg-inner-spread', '--lg-inner-color',
+        '--lg-tint', '--lg-tint-opacity', '--lg-filter'].forEach((p) => this.el.style.removeProperty(p));
+      this.el.style.transform = '';
+    }
+
+    _applyCss() {
+      const s = this.el.style, o = this.o;
+      s.setProperty('--lg-radius', o.radius + 'px');
+      s.setProperty('--lg-outer-blur', o.outerShadowBlur + 'px');
+      s.setProperty('--lg-inner-blur', o.innerShadowBlur + 'px');
+      s.setProperty('--lg-inner-spread', o.innerShadowSpread + 'px');
+      s.setProperty('--lg-inner-color', o.innerShadowColor);
+      s.setProperty('--lg-tint', hexToRgb(o.tintColor));
+      s.setProperty('--lg-tint-opacity', String(o.tintOpacity));
+    }
+
+    _scheduleBuild() {
+      cancelAnimationFrame(this._raf);
+      this._raf = requestAnimationFrame(() => this._build());
+    }
+
+    _build() {
+      // offsetWidth/Height ignorent le transform → la déformation au toucher ne relance pas le calcul.
+      const w = this.el.offsetWidth, h = this.el.offsetHeight;
+      if (w < 2 || h < 2) return;
+      const o = this.o;
+      const key = `${w}x${h}`;
+      if (key === this.lastSize) return;
+      this.lastSize = key;
+
+      const radius = Math.floor(Math.min(o.radius, w / 2, h / 2));
+      const bezel = Math.max(1, Math.min(o.bezelWidth, radius - 1, Math.min(w, h) / 2 - 1));
+      const profile = refractionProfile(o.glassThickness, bezel, SURFACE_FNS[o.surface] || SURFACE_FNS.convex_squircle, o.refractiveIndex);
+      let maxDisp = 0;
+      for (let i = 0; i < profile.length; i++) maxDisp = Math.max(maxDisp, Math.abs(profile[i]));
+      maxDisp = maxDisp || 1;
+
+      const disp = displacementMap(w, h, radius, bezel, profile, maxDisp);
+      const spec = specularMap(w, h, radius, bezel * 2.5, o.specularAngle);
+
+      const markup = `<filter id="${this.id}" x="0%" y="0%" width="100%" height="100%">
+  <feGaussianBlur in="SourceGraphic" stdDeviation="${o.blur}" result="blurred_source"/>
+  <feImage href="${disp}" x="0" y="0" width="${w}" height="${h}" result="disp_map"/>
+  <feDisplacementMap in="blurred_source" in2="disp_map" scale="${maxDisp * o.scaleRatio}" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+  <feColorMatrix in="displaced" type="saturate" values="${o.specularSaturation}" result="displaced_sat"/>
+  <feImage href="${spec}" x="0" y="0" width="${w}" height="${h}" result="spec_layer"/>
+  <feComposite in="displaced_sat" in2="spec_layer" operator="in" result="spec_masked"/>
+  <feComponentTransfer in="spec_layer" result="spec_faded"><feFuncA type="linear" slope="${o.specularOpacity}"/></feComponentTransfer>
+  <feBlend in="spec_masked" in2="displaced" mode="normal" result="with_sat"/>
+  <feBlend in="spec_faded" in2="with_sat" mode="normal"/>
+</filter>`;
+      const tmp = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      tmp.innerHTML = markup;
+      const f = tmp.firstElementChild;
+      if (this.filterEl) this.filterEl.replaceWith(f); else svgDefs.appendChild(f);
+      this.filterEl = f;
+      this.el.style.setProperty('--lg-filter', `url(#${this.id})`);
+    }
+
+    /* -------------------------------------------------------------- */
+    /* Ajout : déformation « liquide » (gonfle à l'appui, s'étire     */
+    /* dans le sens du mouvement, rebondit au relâchement)            */
+    /* -------------------------------------------------------------- */
+    _initJelly() {
+      const el = this.el, o = this.o;
+      el.classList.add('lg-interactive');
+      // état du ressort : échelle, étirement, angle
+      const st = { s: 1, vs: 0, ts: 1, k: 0, vk: 0, tk: 0, a: 0 };
+      let pressed = false, lastX = 0, lastY = 0, lastT = 0, running = false, prev = 0;
+
+      const step = (t) => {
+        const dt = Math.min(0.032, Math.max(0.001, (t - prev) / 1000));
+        prev = t;
+        // ressort amorti (semi-implicite)
+        st.vs += (o.stiffness * (st.ts - st.s) - o.damping * st.vs) * dt; st.s += st.vs * dt;
+        st.vk += (o.stiffness * (st.tk - st.k) - o.damping * st.vk) * dt; st.k += st.vk * dt;
+        if (!pressed) st.tk *= 0.8; // l'étirement retombe quand on ne bouge plus
+        const sx = st.s * (1 + st.k), sy = st.s * (1 - st.k * 0.6);
+        el.style.transform = `rotate(${st.a}rad) scale(${sx}, ${sy}) rotate(${-st.a}rad)`;
+        const idle = !pressed && Math.abs(st.s - 1) < 1e-3 && Math.abs(st.vs) < 1e-3 && Math.abs(st.k) < 1e-3 && Math.abs(st.vk) < 1e-3;
+        if (idle) { el.style.transform = ''; running = false; return; }
+        requestAnimationFrame(step);
+      };
+      const kick = () => { if (!running) { running = true; prev = performance.now(); requestAnimationFrame(step); } };
+
+      const down = (e) => {
+        pressed = true; st.ts = o.pressScale;
+        lastX = e.clientX; lastY = e.clientY; lastT = performance.now();
+        kick();
+      };
+      const move = (e) => {
+        if (!pressed) return;
+        const now = performance.now(), dt = Math.max(1, now - lastT);
+        const dx = e.clientX - lastX, dy = e.clientY - lastY;
+        const speed = Math.hypot(dx, dy) / dt * 1000; // px/s
+        if (speed > 1) {
+          st.a = Math.atan2(dy, dx);
+          st.tk = Math.min(o.maxStretch, speed * o.stretch);
+        }
+        lastX = e.clientX; lastY = e.clientY; lastT = now;
+        kick();
+      };
+      const up = () => { if (!pressed) return; pressed = false; st.ts = 1; st.tk = 0; kick(); };
+
+      el.addEventListener('pointerdown', down);
+      window.addEventListener('pointermove', move, { passive: true });
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+      this._jellyOff = () => {
+        el.removeEventListener('pointerdown', down);
+        window.removeEventListener('pointermove', move);
+        window.removeEventListener('pointerup', up);
+        window.removeEventListener('pointercancel', up);
+      };
+    }
+  }
+
+  const LiquidGlass = {
+    /** Applique l'effet à un élément (ou une liste) et renvoie l'instance (ou un tableau). */
+    apply(target, options) {
+      if (typeof target === 'string') target = document.querySelectorAll(target);
+      if (target instanceof Element) return new Glass(target, options);
+      return Array.from(target, (el) => new Glass(el, options));
+    },
+    supportsRefraction: SUPPORTS_REFRACTION,
+    defaults: DEFAULTS,
+  };
+
+  if (typeof module !== 'undefined' && module.exports) module.exports = LiquidGlass;
+  else global.LiquidGlass = LiquidGlass;
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+    <script>
+const email = 'iamivanntresor999@gmail.com';
+const toast = document.getElementById('toast');
+const copyEmailBtn = document.getElementById('copyEmailBtn');
+const shareBtn = document.getElementById('shareBtn');
+const backTopBtn = document.getElementById('backTopBtn');
+const liveClock = document.getElementById('liveClock');
+const visitorCount = document.getElementById('visitorCount');
+const searchInput = document.getElementById('searchInput');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const productCards = document.querySelectorAll('.product-card');
+
+/* ---------- Toast ---------- */
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+/* ---------- Actions ---------- */
+async function copyEmail() {
+    try {
+        await navigator.clipboard.writeText(email);
+        showToast('Email copié avec succès');
+    } catch (error) {
+        showToast('Impossible de copier l’email');
+    }
+}
+
+async function shareProfile() {
+    const shareData = {
+        title: 'Triple Nine',
+        text: 'Retrouve tous mes liens et mes offres ici.',
+        url: window.location.href
+    };
+    try {
+        if (navigator.share) {
+            await navigator.share(shareData);
+            showToast('Profil partagé');
+        } else {
+            await navigator.clipboard.writeText(window.location.href);
+            showToast('Lien du profil copié');
+        }
+    } catch (error) {
+        showToast('Partage annulé');
+    }
+}
+
+function updateClock() {
+    liveClock.textContent = new Date().toLocaleTimeString('fr-FR');
+}
+
+function animateVisitors() {
+    let current = 0;
+    const target = 1400;
+    const step = Math.ceil(target / 60);
+    const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            current = target;
+            clearInterval(interval);
+        }
+        visitorCount.textContent = current.toLocaleString('fr-FR');
+    }, 28);
+}
+
+/* ---------- Filtres / recherche ---------- */
+function applyFilters() {
+    const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+    const searchValue = searchInput.value.toLowerCase().trim();
+
+    productCards.forEach(card => {
+        const filterMatch = activeFilter === 'all' || card.dataset.category === activeFilter;
+        const searchMatch = card.dataset.name.toLowerCase().includes(searchValue);
+        card.classList.toggle('hidden', !(filterMatch && searchMatch));
+    });
+}
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        applyFilters();
+    });
+});
+
+copyEmailBtn?.addEventListener('click', copyEmail);
+shareBtn?.addEventListener('click', shareProfile);
+backTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+searchInput?.addEventListener('input', applyFilters);
+
+/* ---------- Liquid Glass ---------- */
+function initLiquidGlass() {
+    if (!window.LiquidGlass) return;
+
+    // Valeurs EXACTES de la goutte d'eau de ton exemple (valeurs par défaut de liquid-glass.js)
+    const base = {
+        radius: 60,
+        surface: 'convex_squircle',
+        glassThickness: 80,
+        bezelWidth: 60,
+        refractiveIndex: 3.0,
+        scaleRatio: 1.0,
+        blur: 0.3,
+        specularOpacity: 0.5,
+        specularSaturation: 4,
+        specularAngle: Math.PI / 3,
+        innerShadowColor: '#ffffff',
+        innerShadowBlur: 20,
+        innerShadowSpread: -5,
+        tintColor: '#ffffff',
+        tintOpacity: 0.06,
+        outerShadowBlur: 24,
+        fallbackBlur: 14,
+        interactive: false   // false = le scroll tactile n'est jamais bloqué (la démo avait true)
+    };
+
+    // Seul le dock reste « gélatine » au toucher, avec les réglages de ta démo
+    const presets = {
+        dock: { interactive: true, pressScale: 1.06, stretch: 0.0001, maxStretch: 0.12, stiffness: 260, damping: 14 }
+    };
+
+    document.querySelectorAll('.product-card').forEach(c => c.dataset.glass = 'product');
+    document.querySelectorAll('[data-glass]').forEach(el => {
+        const preset = presets[el.dataset.glass] || {};
+        LiquidGlass.apply(el, { ...base, ...preset });
+    });
+}
+
+/* ---------- Démarrage ---------- */
+updateClock();
+setInterval(updateClock, 1000);
+animateVisitors();
+initLiquidGlass();
+
+</script>
 </body>
 </html>
