@@ -1,439 +1,283 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Triple Nine | Profil</title>
-    <meta name="description" content="Profil officiel de Triple Nine : réseaux, contact pro et offres spéciales." />
-    <meta name="theme-color" content="#000000" />
-    <meta property="og:title" content="Triple Nine | @999" />
-    <meta property="og:description" content="Tous mes liens, mon contact pro et mes offres du moment." />
-    <meta property="og:image" content="https://i.postimg.cc/wx2dwhBV/IMG_3106.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-    <style>
-:root {
-    --bg: #050505;
-    --text: #f4f1ec;
-    --muted: #9a958d;
-    --line: rgba(255, 255, 255, 0.09);
-    --orange: #ff7a1a;
-    --orange-2: #ff9a45;
-    --orange-soft: rgba(255, 122, 26, 0.16);
-}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Triple Nine | Profil</title>
+<meta name="description" content="Profil officiel de Triple Nine : réseaux, contact pro et offres spéciales." />
+<meta name="theme-color" content="#000000" />
+<meta property="og:title" content="Triple Nine | @999" />
+<meta property="og:description" content="Tous mes liens, mon contact pro et mes offres du moment." />
+<meta property="og:image" content="https://i.postimg.cc/wx2dwhBV/IMG_3106.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#050505;--text:#f4f1ec;--muted:#b3aea6;--line:rgba(255,255,255,.12);--orange:#ff7a1a;--orange-2:#ff9a45;--orange-soft:rgba(255,122,26,.16)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;min-height:100vh;font-family:'Space Grotesk',Inter,Arial,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin-top:0}
+a{color:inherit}
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 20px; }
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Space Grotesk', Inter, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, p { margin-top: 0; }
-a { color: inherit; }
-
-/* ---------- Décor (ce que le verre déforme) ---------- */
-.backdrop { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-
-.glow { position: absolute; border-radius: 50%; filter: blur(90px); }
-.glow-1 { width: 420px; height: 420px; top: -120px; left: -120px; background: rgba(255, 122, 26, 0.22); }
-.glow-2 { width: 380px; height: 380px; bottom: -140px; right: -140px; background: rgba(255, 90, 0, 0.14); }
-
-.marquee { position: absolute; left: 0; display: flex; white-space: nowrap; font-weight: 700; line-height: 1; will-change: transform; }
-
-.marquee-a { top: 6%;  font-size: clamp(90px, 16vw, 190px); color: rgba(255, 122, 26, 0.32); animation: slide 38s linear infinite; }
-.marquee-b { top: 38%; font-size: clamp(60px, 10vw, 120px); color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5); animation: slide 46s linear infinite reverse; }
-.marquee-c { top: 66%; font-size: clamp(110px, 20vw, 240px); color: rgba(255, 255, 255, 0.1); animation: slide 54s linear infinite; }
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-}
+/* ---------- Décor (ce que le verre déforme) : plus contrasté pour bien voir l'effet ---------- */
+.backdrop{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.glow{position:absolute;border-radius:50%;filter:blur(90px)}
+.glow-1{width:420px;height:420px;top:-120px;left:-120px;background:rgba(255,122,26,.3)}
+.glow-2{width:380px;height:380px;bottom:-140px;right:-140px;background:rgba(255,90,0,.2)}
+.marquee{position:absolute;left:0;display:flex;white-space:nowrap;font-weight:700;line-height:1;will-change:transform}
+.marquee-a{top:6%;font-size:clamp(90px,16vw,190px);color:rgba(255,122,26,.7);animation:slide 38s linear infinite}
+.marquee-b{top:38%;font-size:clamp(60px,10vw,120px);color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.75);animation:slide 46s linear infinite reverse}
+.marquee-c{top:66%;font-size:clamp(110px,20vw,240px);color:rgba(255,255,255,.28);animation:slide 54s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ---------- Structure ---------- */
-.page { width: min(760px, calc(100% - 28px)); margin: 24px auto 120px; position: relative; z-index: 1; }
-.section { margin-top: 44px; }
+.page{width:min(760px,calc(100% - 28px));margin:24px auto 120px;position:relative;z-index:1}
+.section{margin-top:44px}
 
-/* Cartes en verre : 100 % transparentes, la déformation vient du liquid glass.
-   L'arrondi des coins est géré par la lib (radius: 60). */
-.glass-card {
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: transparent;
-    padding: 28px;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
-}
+/* Verre 100 % transparent : aucun fond, aucune teinte. Seul le bord déforme l'arrière-plan. */
+.glass-card{position:relative;border:1px solid rgba(255,255,255,.14);background:transparent;padding:28px;text-shadow:0 1px 10px rgba(0,0,0,.6)}
 
-.hero-top { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
-.avatar-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-
-.profile-img {
-    width: 112px; height: 112px; object-fit: cover; border-radius: 50%;
-    border: 2px solid var(--orange);
-    box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.14), 0 12px 40px rgba(255, 122, 26, 0.3);
-}
-
-.status-badge {
-    display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text);
-    padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); background: transparent;
-}
-.status-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
-
-.eyebrow, .section-kicker {
-    margin: 0 0 6px; text-transform: uppercase; letter-spacing: 0.16em;
-    font-size: 11px; color: var(--orange); font-weight: 700;
-}
-
-h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); line-height: 1; margin-bottom: 10px; letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.4rem, 4.5vw, 1.9rem); margin-bottom: 0; letter-spacing: -0.01em; }
-h3 { font-size: 1.05rem; margin-bottom: 6px; }
-
-.tagline { color: var(--text); font-weight: 500; margin: 0; opacity: 0.9; }
-.bio { color: var(--muted); line-height: 1.65; margin: 22px 0; }
-.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-top{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+.profile-img{width:112px;height:112px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);box-shadow:0 0 0 5px rgba(255,122,26,.14),0 12px 40px rgba(255,122,26,.3)}
+.status-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:transparent}
+.status-badge i{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
+.eyebrow,.section-kicker{margin:0 0 6px;text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--orange);font-weight:700}
+h1{font-size:clamp(2.4rem,9vw,3.6rem);line-height:1;margin-bottom:10px;letter-spacing:-.02em}
+h2{font-size:clamp(1.4rem,4.5vw,1.9rem);margin-bottom:0;letter-spacing:-.01em}
+h3{font-size:1.05rem;margin-bottom:6px}
+.tagline{font-weight:500;margin:0;opacity:.9}
+.bio{color:var(--muted);line-height:1.65;margin:22px 0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
 
 /* ---------- Boutons ---------- */
-.btn, .ghost-btn, .filter-btn, .buy, .dock a, .dock button {
-    font: inherit; cursor: pointer; text-decoration: none;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-.btn { border: none; padding: 14px 20px; border-radius: 16px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
-.btn-primary { background: var(--orange); color: #120800; box-shadow: 0 10px 28px rgba(255, 122, 26, 0.3); }
-.btn-ghost, .ghost-btn, .filter-btn { background: rgba(255, 255, 255, 0.05); color: var(--text); border: 1px solid var(--line); }
-.btn-ghost { padding: 14px 20px; border-radius: 16px; font-weight: 600; }
-.btn:hover, .ghost-btn:hover, .filter-btn:hover, .buy:hover { transform: translateY(-2px); }
-.btn-primary:hover { background: var(--orange-2); }
+.btn,.ghost-btn,.filter-btn,.buy,.dock a,.dock button{font:inherit;cursor:pointer;text-decoration:none;transition:transform .25s ease,background .25s ease,border-color .25s ease}
+.btn{border:none;padding:14px 20px;border-radius:16px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.btn-primary{background:var(--orange);color:#120800;box-shadow:0 10px 28px rgba(255,122,26,.3)}
+.btn-ghost,.ghost-btn,.filter-btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.25)}
+.btn-ghost{font-weight:600}
+.btn:hover,.ghost-btn:hover,.filter-btn:hover,.buy:hover{transform:translateY(-2px)}
+.btn-primary:hover{background:var(--orange-2)}
 
 /* ---------- Stats ---------- */
-.stats-grid { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); padding-top: 18px; }
-.stat-box { text-align: center; }
-.stat-box + .stat-box { border-left: 1px solid var(--line); }
-.stat-value { display: block; font-size: 1.6rem; font-weight: 700; color: var(--orange); }
-.stat-label { font-size: 0.8rem; color: var(--muted); }
+.stats-grid{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:18px}
+.stat-box{text-align:center}
+.stat-box+.stat-box{border-left:1px solid var(--line)}
+.stat-value{display:block;font-size:1.6rem;font-weight:700;color:var(--orange)}
+.stat-label{font-size:.8rem;color:var(--muted)}
 
-/* ---------- Titres de section ---------- */
-.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
-.ghost-btn { padding: 10px 14px; border-radius: 12px; font-size: 0.85rem; }
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ghost-btn{padding:10px 14px;border-radius:12px;font-size:.85rem}
 
 /* ---------- Réseaux ---------- */
-.links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-
-.social-card {
-    text-decoration: none; padding: 16px; display: grid;
-    grid-template-columns: auto 1fr auto; gap: 12px; align-items: center;
-    transition: transform 0.25s ease;
-}
-.social-card:hover { transform: translateY(-3px); }
-.social-card strong { display: block; }
-.social-card small { color: var(--muted); font-size: 0.78rem; word-break: break-all; }
-.social-card.accent { border-color: rgba(255, 122, 26, 0.45); }
-
-.social-icon { width: 42px; height: 42px; display: grid; place-items: center; }
-.social-icon img { width: 40px; height: 40px; object-fit: contain; }
-.go { font-size: 20px; color: var(--orange); }
+.links-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.social-card{text-decoration:none;padding:16px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.social-card strong{display:block}
+.social-card small{color:var(--muted);font-size:.78rem;word-break:break-all}
+.social-card.accent{border-color:rgba(255,122,26,.5)}
+.social-icon{width:42px;height:42px;display:grid;place-items:center}
+.social-icon img{width:40px;height:40px;object-fit:contain}
+.go{font-size:20px;color:var(--orange)}
 
 /* ---------- Offres ---------- */
-.toolbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
-.filters { display: flex; gap: 8px; flex-wrap: wrap; }
-
-.search-input {
-    width: 100%; padding: 14px 16px; border-radius: 14px; outline: none; font: inherit;
-    color: var(--text); background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line);
-}
-.search-input:focus { border-color: var(--orange); }
-
-.filter-btn { padding: 10px 16px; border-radius: 999px; font-size: 0.9rem; }
-.filter-btn.active { background: var(--orange-soft); border-color: rgba(255, 122, 26, 0.6); color: var(--orange-2); }
-
-.promo-banner {
-    margin-bottom: 18px; border: 1px dashed rgba(255, 122, 26, 0.5); background: rgba(255, 122, 26, 0.07);
-    border-radius: 16px; padding: 13px 16px; font-weight: 500; font-size: 0.92rem;
-}
-
-.products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-
-.product-card {
-    background: transparent; border: 1px solid rgba(255, 255, 255, 0.18);
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
-    overflow: hidden; display: flex; flex-direction: column;
-    transition: transform 0.25s ease, border-color 0.25s ease;
-}
-.product-card:hover { transform: translateY(-4px); border-color: rgba(255, 122, 26, 0.45); }
-
-.product-media { position: relative; }
-.product-img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; display: block; }
-
-.price-chip {
-    position: absolute; left: 12px; bottom: 12px; padding: 9px 16px;
-    font-weight: 700; font-size: 0.9rem; color: #fff;
-    background: transparent; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
-}
-
-.product-content { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
-.product-content p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; flex: 1; }
-
-.pill {
-    align-self: flex-start; padding: 5px 10px; border-radius: 999px; background: var(--orange-soft);
-    color: var(--orange-2); font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
-    text-transform: uppercase; margin-bottom: 10px;
-}
-
-.buy { text-align: center; background: var(--orange); color: #120800; padding: 12px 14px; border-radius: 14px; font-weight: 700; }
-
-.trust-note { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin: 20px 4px 0; }
+.toolbar{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.search-input{width:100%;padding:14px 16px;border-radius:14px;outline:none;font:inherit;color:var(--text);background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.25)}
+.search-input:focus{border-color:var(--orange)}
+.filter-btn{padding:10px 16px;border-radius:999px;font-size:.9rem}
+.filter-btn.active{background:var(--orange-soft);border-color:rgba(255,122,26,.7);color:var(--orange-2)}
+.promo-banner{margin-bottom:18px;border:1px dashed rgba(255,122,26,.5);background:rgba(255,122,26,.07);border-radius:16px;padding:13px 16px;font-weight:500;font-size:.92rem}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.product-card{background:transparent;border:1px solid rgba(255,255,255,.14);text-shadow:0 1px 10px rgba(0,0,0,.6);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,border-color .25s ease}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(255,122,26,.5)}
+.product-media{position:relative}
+.product-img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;display:block}
+.price-chip{position:absolute;left:12px;bottom:12px;padding:9px 16px;font-weight:700;font-size:.9rem;color:#fff;background:transparent}
+.product-content{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.product-content p{color:var(--muted);font-size:.92rem;margin-bottom:16px;flex:1}
+.pill{align-self:flex-start;padding:5px 10px;border-radius:999px;background:var(--orange-soft);color:var(--orange-2);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.buy{text-align:center;background:var(--orange);color:#120800;padding:12px 14px;border-radius:14px;font-weight:700;text-shadow:none}
+.trust-note{color:var(--muted);font-size:.85rem;line-height:1.6;margin:20px 4px 0}
 
 /* ---------- Infos ---------- */
-.mini-card { margin-top: 44px; display: grid; gap: 18px; }
-.mini-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.mini-info > div { padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; }
-.mini-label { display: block; font-size: 0.78rem; color: var(--muted); margin-bottom: 4px; }
-.mail { font-size: 0.82rem; word-break: break-all; }
+.mini-card{margin-top:44px;display:grid;gap:18px}
+.mini-info{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.mini-info>div{padding:14px 16px;border:1px solid var(--line);border-radius:16px}
+.mini-label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.mail{font-size:.82rem;word-break:break-all}
+.footer{text-align:center;color:var(--muted);padding:28px 0 0;font-size:.9rem}
+.footer span{color:var(--orange);font-weight:700}
 
-.footer { text-align: center; color: var(--muted); padding: 28px 0 0; font-size: 0.9rem; }
-.footer span { color: var(--orange); font-weight: 700; }
+/* ---------- Dock (centré sans transform, pour ne pas casser l'effet gélatine) ---------- */
+.dock{position:fixed;left:0;right:0;margin:0 auto;width:max-content;max-width:calc(100% - 24px);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:4px;padding:8px;border:1px solid rgba(255,255,255,.14);background:transparent}
+.dock a,.dock button{border:none;background:transparent;color:var(--text);padding:11px 16px;border-radius:999px;font-size:.9rem;font-weight:500;position:relative;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.dock a:hover,.dock button:hover{background:rgba(255,255,255,.08)}
+.dock .dock-cta{background:var(--orange);color:#120800;font-weight:700;text-shadow:none}
+.dock .dock-cta:hover{background:var(--orange-2)}
 
-/* ---------- Dock flottant ---------- */
-.dock {
-    position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    transform: translateX(-50%); z-index: 30; display: flex; align-items: center; gap: 4px;
-    padding: 8px; border: 1px solid var(--line); background: transparent;
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(18,18,18,.92);color:var(--text);border:1px solid rgba(255,122,26,.4);border-radius:14px;padding:12px 18px;opacity:0;pointer-events:none;transition:.25s ease;z-index:40;font-size:.9rem}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.hidden{display:none !important}
+
+@media (max-width:620px){
+.glass-card{padding:22px}
+.profile-img{width:92px;height:92px}
+.links-grid,.products-grid{grid-template-columns:1fr}
+.hero-actions .btn{flex:1}
+.mini-info{grid-template-columns:1fr}
+.section-head .ghost-btn{align-self:flex-start}
 }
-
-.dock a, .dock button {
-    border: none; background: transparent; color: var(--text); padding: 11px 16px;
-    border-radius: 999px; font-size: 0.9rem; font-weight: 500; position: relative; z-index: 2;
-}
-.dock a:hover, .dock button:hover { background: rgba(255, 255, 255, 0.08); }
-.dock .dock-cta { background: var(--orange); color: #120800; font-weight: 700; }
-.dock .dock-cta:hover { background: var(--orange-2); }
-
-/* ---------- Toast ---------- */
-.toast {
-    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
-    background: rgba(18, 18, 18, 0.92); color: var(--text); border: 1px solid rgba(255, 122, 26, 0.4);
-    border-radius: 14px; padding: 12px 18px; opacity: 0; pointer-events: none;
-    transition: 0.25s ease; z-index: 40; font-size: 0.9rem;
-}
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-.hidden { display: none !important; }
-
-/* ---------- Mobile ---------- */
-@media (max-width: 620px) {
-    .glass-card { padding: 22px; }
-    .profile-img { width: 92px; height: 92px; }
-    .links-grid, .products-grid { grid-template-columns: 1fr; }
-    .hero-actions .btn { flex: 1; }
-    .mini-info { grid-template-columns: 1fr; }
-    .section-head .ghost-btn { align-self: flex-start; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .marquee { animation: none; }
-    html { scroll-behavior: auto; }
-}
-
+@media (prefers-reduced-motion:reduce){.marquee{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-    <!-- Décor fixe : c'est lui que le verre liquide déforme quand on fait défiler -->
-    <div class="backdrop" aria-hidden="true">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="marquee marquee-a"><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span></div>
-        <div class="marquee marquee-b"><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span></div>
-        <div class="marquee marquee-c"><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span></div>
+<div class="backdrop" aria-hidden="true">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="marquee marquee-a"><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span><span>TRIPLE NINE • 999 • TRIPLE NINE • 999 • TRIPLE NINE • 999 •&nbsp;</span></div>
+  <div class="marquee marquee-b"><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span><span>CONTACT • OFFRES • STREAMING • POLAROID • CONTACT • OFFRES • STREAMING • POLAROID •&nbsp;</span></div>
+  <div class="marquee marquee-c"><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span><span>999 999 999 999 999 999 999 999 999 999 999 999 999 999 999 999&nbsp;</span></div>
+</div>
+
+<main class="page">
+  <section class="glass-card hero" data-glass="card">
+    <div class="hero-top">
+      <div class="avatar-wrap">
+        <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" alt="Photo de profil Triple Nine" class="profile-img" />
+        <span class="status-badge"><i></i>En ligne</span>
+      </div>
+      <div class="hero-heading">
+        <p class="eyebrow">Profil officiel</p>
+        <h1>@999</h1>
+        <p class="tagline">Créateur · Contact · Bons plans</p>
+      </div>
     </div>
+    <p class="bio">Ici tu retrouves tous mes liens, mon contact pro et mes offres du moment. Clique, découvre, commande.</p>
+    <div class="hero-actions">
+      <a href="mailto:iamivanntresor999@gmail.com" class="btn btn-primary">Contact Pro</a>
+      <button class="btn btn-ghost" id="shareBtn" type="button">Partager le profil</button>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><span class="stat-value">5+</span><span class="stat-label">Réseaux</span></div>
+      <div class="stat-box"><span class="stat-value">4</span><span class="stat-label">Offres</span></div>
+      <div class="stat-box"><span class="stat-value" id="visitorCount">999</span><span class="stat-label">Visites</span></div>
+    </div>
+  </section>
 
-    <main class="page">
+  <section class="section" id="reseaux">
+    <div class="section-head">
+      <div><p class="section-kicker">Réseaux sociaux</p><h2>Retrouve-moi partout</h2></div>
+      <button class="ghost-btn" id="copyEmailBtn" type="button">Copier l’email</button>
+    </div>
+    <div class="links-grid">
+      <a href="https://t.me/ivanntresor" class="glass-card social-card" data-glass="card" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon"><img src="https://i.postimg.cc/90gBGBv5/IMG_3260.png" alt="" /></span>
+        <div><strong>Telegram</strong><small>Discussion directe</small></div><span class="go">↗</span>
+      </a>
+      <a href="https://wa.me/qr/6MHESZQQ5U5PN1" class="glass-card social-card" data-glass="card" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon"><img src="https://i.postimg.cc/0jXCpCLy/IMG_3258.png" alt="" /></span>
+        <div><strong>WhatsApp</strong><small>Commande rapide</small></div><span class="go">↗</span>
+      </a>
+      <a href="https://www.instagram.com/ivann_tresor_official" class="glass-card social-card" data-glass="card" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon"><img src="https://i.postimg.cc/D0pcqctv/IMG_3259.png" alt="" /></span>
+        <div><strong>Instagram</strong><small>@ivann_tresor_official</small></div><span class="go">↗</span>
+      </a>
+      <a href="https://www.tiktok.com/@ivann_tresor_999_off" class="glass-card social-card" data-glass="card" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon"><img src="https://i.postimg.cc/Sj0fTKN1/IMG_3264.png" alt="" /></span>
+        <div><strong>TikTok</strong><small>@ivann_tresor_999_off</small></div><span class="go">↗</span>
+      </a>
+      <a href="https://pin.it/6muCZkrNS" class="glass-card social-card" data-glass="card" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon"><img src="https://i.postimg.cc/qgfxb7Mb/IMG_3265.png" alt="" /></span>
+        <div><strong>Pinterest</strong><small>Inspirations</small></div><span class="go">↗</span>
+      </a>
+      <a href="mailto:iamivanntresor999@gmail.com" class="glass-card social-card accent" data-glass="card">
+        <span class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" /></span>
+        <div><strong>Email pro</strong><small>Réponse rapide</small></div><span class="go">↗</span>
+      </a>
+    </div>
+  </section>
 
-        <!-- HERO -->
-        <section class="glass-card hero" data-glass="hero">
-            <div class="hero-top">
-                <div class="avatar-wrap">
-                    <img src="https://i.postimg.cc/c4F03XyT/IMG-7092.jpg" alt="Photo de profil Triple Nine" class="profile-img" />
-                    <span class="status-badge"><i></i>En ligne</span>
-                </div>
-                <div class="hero-heading">
-                    <p class="eyebrow">Profil officiel</p>
-                    <h1>@999</h1>
-                    <p class="tagline">Créateur · Contact · Bons plans</p>
-                </div>
-            </div>
+  <section class="section" id="offres">
+    <div class="section-head">
+      <div><p class="section-kicker">Promotions</p><h2>Offres spéciales</h2></div>
+    </div>
+    <div class="toolbar">
+      <input id="searchInput" class="search-input" type="text" placeholder="Rechercher une offre..." />
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all" type="button">Tout</button>
+        <button class="filter-btn" data-filter="streaming" type="button">Streaming</button>
+        <button class="filter-btn" data-filter="photo" type="button">Polaroid</button>
+      </div>
+    </div>
+    <div class="promo-banner">🔥 Promo spéciale toute la semaine · Commande rapide par WhatsApp</div>
 
-            <p class="bio">Ici tu retrouves tous mes liens, mon contact pro et mes offres du moment. Clique, découvre, commande.</p>
+    <div class="products-grid" id="productsGrid">
+      <article class="product-card" data-glass="card" data-category="streaming" data-name="Netflix 1 mois">
+        <div class="product-media">
+          <img src="https://i.postimg.cc/3rGBhpM7/IMG_2647.jpg" alt="Compte Netflix 1 mois" class="product-img" loading="lazy" />
+          <span class="price-chip" data-glass="chip">2000 FCFA</span>
+        </div>
+        <div class="product-content">
+          <span class="pill">Streaming</span><h3>Compte Netflix · 1 mois</h3><p>Accès premium à prix doux.</p>
+          <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
+        </div>
+      </article>
+      <article class="product-card" data-glass="card" data-category="streaming" data-name="Prime 1 mois">
+        <div class="product-media">
+          <img src="https://i.postimg.cc/x8LyPrGg/IMG_2395.jpg" alt="Compte Prime 1 mois" class="product-img" loading="lazy" />
+          <span class="price-chip" data-glass="chip">2000 FCFA</span>
+        </div>
+        <div class="product-content">
+          <span class="pill">Streaming</span><h3>Compte Prime · 1 mois</h3><p>Compte premium prêt à utiliser.</p>
+          <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
+        </div>
+      </article>
+      <article class="product-card" data-glass="card" data-category="photo" data-name="Polaroid moyen format">
+        <div class="product-media">
+          <img src="https://i.postimg.cc/cHDmTmmL/IMG_4456.jpg" alt="Polaroid moyen format" class="product-img" loading="lazy" />
+          <span class="price-chip" data-glass="chip">2000 FCFA</span>
+        </div>
+        <div class="product-content">
+          <span class="pill">Polaroid</span><h3>Polaroid moyen format · 8 pcs</h3><p>Impression propre pour tes meilleurs souvenirs.</p>
+          <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
+        </div>
+      </article>
+      <article class="product-card" data-glass="card" data-category="photo" data-name="Polaroid mini format">
+        <div class="product-media">
+          <img src="https://i.postimg.cc/nLGT9Z9K/IMG_4468.jpg" alt="Polaroid mini format" class="product-img" loading="lazy" />
+          <span class="price-chip" data-glass="chip">2000 FCFA</span>
+        </div>
+        <div class="product-content">
+          <span class="pill">Polaroid</span><h3>Polaroid mini format · 15 pcs</h3><p>Petit format, rendu stylé, parfait à offrir.</p>
+          <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
+        </div>
+      </article>
+    </div>
+    <p class="trust-note">Je ne suis pas l’auteur de tous les produits proposés, mais je garantis leur fiabilité. En cas de souci, je m’engage à rembourser intégralement la somme.</p>
+  </section>
 
-            <div class="hero-actions">
-                <a href="mailto:iamivanntresor999@gmail.com" class="btn btn-primary">Contact Pro</a>
-                <button class="btn btn-ghost" id="shareBtn" type="button">Partager le profil</button>
-            </div>
+  <section class="glass-card mini-card" data-glass="card">
+    <div><p class="section-kicker">Infos utiles</p><h2>Disponibilité</h2></div>
+    <div class="mini-info">
+      <div><span class="mini-label">Heure locale</span><strong id="liveClock">--:--:--</strong></div>
+      <div><span class="mini-label">Email</span><strong class="mail">iamivanntresor999@gmail.com</strong></div>
+    </div>
+  </section>
 
-            <div class="stats-grid">
-                <div class="stat-box"><span class="stat-value">5+</span><span class="stat-label">Réseaux</span></div>
-                <div class="stat-box"><span class="stat-value">4</span><span class="stat-label">Offres</span></div>
-                <div class="stat-box"><span class="stat-value" id="visitorCount">999</span><span class="stat-label">Visites</span></div>
-            </div>
-        </section>
+  <footer class="footer"><p>Propulsé par <span>Triple Nine 999</span></p></footer>
+</main>
 
-        <!-- RÉSEAUX -->
-        <section class="section" id="reseaux">
-            <div class="section-head">
-                <div>
-                    <p class="section-kicker">Réseaux sociaux</p>
-                    <h2>Retrouve-moi partout</h2>
-                </div>
-                <button class="ghost-btn" id="copyEmailBtn" type="button">Copier l’email</button>
-            </div>
+<nav class="dock" data-glass="dock" aria-label="Navigation rapide">
+  <a href="#reseaux">Réseaux</a>
+  <a href="#offres">Offres</a>
+  <a href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer" class="dock-cta">WhatsApp</a>
+  <button id="backTopBtn" type="button" aria-label="Retour en haut">↑</button>
+</nav>
 
-            <div class="links-grid">
-                <a href="https://t.me/ivanntresor" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon"><img src="https://i.postimg.cc/90gBGBv5/IMG_3260.png" alt="" /></span>
-                    <div><strong>Telegram</strong><small>Discussion directe</small></div>
-                    <span class="go">↗</span>
-                </a>
-                <a href="https://wa.me/qr/6MHESZQQ5U5PN1" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon"><img src="https://i.postimg.cc/0jXCpCLy/IMG_3258.png" alt="" /></span>
-                    <div><strong>WhatsApp</strong><small>Commande rapide</small></div>
-                    <span class="go">↗</span>
-                </a>
-                <a href="https://www.instagram.com/ivann_tresor_official" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon"><img src="https://i.postimg.cc/D0pcqctv/IMG_3259.png" alt="" /></span>
-                    <div><strong>Instagram</strong><small>@ivann_tresor_official</small></div>
-                    <span class="go">↗</span>
-                </a>
-                <a href="https://www.tiktok.com/@ivann_tresor_999_off" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon"><img src="https://i.postimg.cc/Sj0fTKN1/IMG_3264.png" alt="" /></span>
-                    <div><strong>TikTok</strong><small>@ivann_tresor_999_off</small></div>
-                    <span class="go">↗</span>
-                </a>
-                <a href="https://pin.it/6muCZkrNS" class="glass-card social-card" data-glass="social" target="_blank" rel="noopener noreferrer">
-                    <span class="social-icon"><img src="https://i.postimg.cc/qgfxb7Mb/IMG_3265.png" alt="" /></span>
-                    <div><strong>Pinterest</strong><small>Inspirations</small></div>
-                    <span class="go">↗</span>
-                </a>
-                <a href="mailto:iamivanntresor999@gmail.com" class="glass-card social-card accent" data-glass="social" >
-                    <span class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" /></span>
-                    <div><strong>Email pro</strong><small>Réponse rapide</small></div>
-                    <span class="go">↗</span>
-                </a>
-            </div>
-        </section>
+<div class="toast" id="toast" role="status"></div>
 
-        <!-- OFFRES -->
-        <section class="section" id="offres">
-            <div class="section-head">
-                <div>
-                    <p class="section-kicker">Promotions</p>
-                    <h2>Offres spéciales</h2>
-                </div>
-            </div>
-
-            <div class="toolbar">
-                <input id="searchInput" class="search-input" type="text" placeholder="Rechercher une offre..." />
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all" type="button">Tout</button>
-                    <button class="filter-btn" data-filter="streaming" type="button">Streaming</button>
-                    <button class="filter-btn" data-filter="photo" type="button">Polaroid</button>
-                </div>
-            </div>
-
-            <div class="promo-banner">🔥 Promo spéciale toute la semaine · Commande rapide par WhatsApp</div>
-
-            <div class="products-grid" id="productsGrid">
-                <article class="product-card" data-category="streaming" data-name="Netflix 1 mois">
-                    <div class="product-media">
-                        <img src="https://i.postimg.cc/3rGBhpM7/IMG_2647.jpg" alt="Compte Netflix 1 mois" class="product-img" loading="lazy" />
-                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
-                    </div>
-                    <div class="product-content">
-                        <span class="pill">Streaming</span>
-                        <h3>Compte Netflix · 1 mois</h3>
-                        <p>Accès premium à prix doux.</p>
-                        <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="streaming" data-name="Prime 1 mois">
-                    <div class="product-media">
-                        <img src="https://i.postimg.cc/x8LyPrGg/IMG_2395.jpg" alt="Compte Prime 1 mois" class="product-img" loading="lazy" />
-                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
-                    </div>
-                    <div class="product-content">
-                        <span class="pill">Streaming</span>
-                        <h3>Compte Prime · 1 mois</h3>
-                        <p>Compte premium prêt à utiliser.</p>
-                        <a class="buy" href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer">Acheter</a>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="photo" data-name="Polaroid moyen format">
-                    <div class="product-media">
-                        <img src="https://i.postimg.cc/cHDmTmmL/IMG_4456.jpg" alt="Polaroid moyen format" class="product-img" loading="lazy" />
-                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
-                    </div>
-                    <div class="product-content">
-                        <span class="pill">Polaroid</span>
-                        <h3>Polaroid moyen format · 8 pcs</h3>
-                        <p>Impression propre pour tes meilleurs souvenirs.</p>
-                        <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
-                    </div>
-                </article>
-
-                <article class="product-card" data-category="photo" data-name="Polaroid mini format">
-                    <div class="product-media">
-                        <img src="https://i.postimg.cc/nLGT9Z9K/IMG_4468.jpg" alt="Polaroid mini format" class="product-img" loading="lazy" />
-                        <span class="price-chip" data-glass="chip">2000 FCFA</span>
-                    </div>
-                    <div class="product-content">
-                        <span class="pill">Polaroid</span>
-                        <h3>Polaroid mini format · 15 pcs</h3>
-                        <p>Petit format, rendu stylé, parfait à offrir.</p>
-                        <a class="buy" href="https://wa.me/2250748426112?text=Salut%20je%20veux%20commander%20des%20Polaro%C3%AFd" target="_blank" rel="noopener noreferrer">Acheter</a>
-                    </div>
-                </article>
-            </div>
-
-            <p class="trust-note">
-                Je ne suis pas l’auteur de tous les produits proposés, mais je garantis leur fiabilité.
-                En cas de souci, je m’engage à rembourser intégralement la somme.
-            </p>
-        </section>
-
-        <!-- INFOS -->
-        <section class="glass-card mini-card" data-glass="hero">
-            <div>
-                <p class="section-kicker">Infos utiles</p>
-                <h2>Disponibilité</h2>
-            </div>
-            <div class="mini-info">
-                <div><span class="mini-label">Heure locale</span><strong id="liveClock">--:--:--</strong></div>
-                <div><span class="mini-label">Email</span><strong class="mail">iamivanntresor999@gmail.com</strong></div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <p>Propulsé par <span>Triple Nine 999</span></p>
-        </footer>
-    </main>
-
-    <!-- Dock flottant en verre liquide -->
-    <nav class="dock" id="dock" data-glass="dock" aria-label="Navigation rapide">
-        <a href="#reseaux">Réseaux</a>
-        <a href="#offres">Offres</a>
-        <a href="https://wa.me/qr/6MHESZQQ5U5PN1" target="_blank" rel="noopener noreferrer" class="dock-cta">WhatsApp</a>
-        <button id="backTopBtn" type="button" aria-label="Retour en haut">↑</button>
-    </nav>
-
-    <div class="toast" id="toast" role="status"></div>
-
-    <script>
+<script>
 /*!
  * liquid-glass.js — effet Liquid Glass autonome (réfraction réelle de l'arrière-plan)
  * Basé sur « Liquid Glass » © 2026 Archis Vaze, licence MIT.
@@ -642,7 +486,7 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
         this.ro.observe(el);
         this._build();
       } else {
-        el.style.setProperty('--lg-filter', `blur(${this.o.fallbackBlur}px) saturate(1.6)`);
+        el.style.setProperty('--lg-filter', this.o.fallbackBlur > 0 ? `blur(${this.o.fallbackBlur}px)` : 'none');
       }
       if (this.o.interactive) this._initJelly();
     }
@@ -794,142 +638,62 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 })(typeof window !== 'undefined' ? window : this);
 
 </script>
-    <script>
-const email = 'iamivanntresor999@gmail.com';
-const toast = document.getElementById('toast');
-const copyEmailBtn = document.getElementById('copyEmailBtn');
-const shareBtn = document.getElementById('shareBtn');
-const backTopBtn = document.getElementById('backTopBtn');
-const liveClock = document.getElementById('liveClock');
-const visitorCount = document.getElementById('visitorCount');
-const searchInput = document.getElementById('searchInput');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const productCards = document.querySelectorAll('.product-card');
+<script>
+const email='iamivanntresor999@gmail.com';
+const $=id=>document.getElementById(id);
+const toast=$('toast'),liveClock=$('liveClock'),visitorCount=$('visitorCount'),searchInput=$('searchInput');
+const filterButtons=document.querySelectorAll('.filter-btn');
+const productCards=document.querySelectorAll('.product-card');
 
-/* ---------- Toast ---------- */
-function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(showToast.timer);
-    showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
-}
+function showToast(m){toast.textContent=m;toast.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove('show'),2200)}
 
-/* ---------- Actions ---------- */
-async function copyEmail() {
-    try {
-        await navigator.clipboard.writeText(email);
-        showToast('Email copié avec succès');
-    } catch (error) {
-        showToast('Impossible de copier l’email');
-    }
-}
-
-async function shareProfile() {
-    const shareData = {
-        title: 'Triple Nine',
-        text: 'Retrouve tous mes liens et mes offres ici.',
-        url: window.location.href
-    };
-    try {
-        if (navigator.share) {
-            await navigator.share(shareData);
-            showToast('Profil partagé');
-        } else {
-            await navigator.clipboard.writeText(window.location.href);
-            showToast('Lien du profil copié');
-        }
-    } catch (error) {
-        showToast('Partage annulé');
-    }
-}
-
-function updateClock() {
-    liveClock.textContent = new Date().toLocaleTimeString('fr-FR');
-}
-
-function animateVisitors() {
-    let current = 0;
-    const target = 1400;
-    const step = Math.ceil(target / 60);
-    const interval = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            current = target;
-            clearInterval(interval);
-        }
-        visitorCount.textContent = current.toLocaleString('fr-FR');
-    }, 28);
-}
-
-/* ---------- Filtres / recherche ---------- */
-function applyFilters() {
-    const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
-    const searchValue = searchInput.value.toLowerCase().trim();
-
-    productCards.forEach(card => {
-        const filterMatch = activeFilter === 'all' || card.dataset.category === activeFilter;
-        const searchMatch = card.dataset.name.toLowerCase().includes(searchValue);
-        card.classList.toggle('hidden', !(filterMatch && searchMatch));
-    });
-}
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        applyFilters();
-    });
+$('copyEmailBtn').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(email);showToast('Email copié avec succès')}catch(e){showToast('Impossible de copier l’email')}
 });
+$('shareBtn').addEventListener('click',async()=>{
+  const d={title:'Triple Nine',text:'Retrouve tous mes liens et mes offres ici.',url:location.href};
+  try{
+    if(navigator.share){await navigator.share(d);showToast('Profil partagé')}
+    else{await navigator.clipboard.writeText(location.href);showToast('Lien du profil copié')}
+  }catch(e){showToast('Partage annulé')}
+});
+$('backTopBtn').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-copyEmailBtn?.addEventListener('click', copyEmail);
-shareBtn?.addEventListener('click', shareProfile);
-backTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-searchInput?.addEventListener('input', applyFilters);
+function updateClock(){liveClock.textContent=new Date().toLocaleTimeString('fr-FR')}
+function animateVisitors(){
+  let c=0;const t=1400,s=Math.ceil(t/60);
+  const i=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(i)}visitorCount.textContent=c.toLocaleString('fr-FR')},28);
+}
+function applyFilters(){
+  const f=document.querySelector('.filter-btn.active')?.dataset.filter||'all';
+  const q=searchInput.value.toLowerCase().trim();
+  productCards.forEach(c=>c.classList.toggle('hidden',!((f==='all'||c.dataset.category===f)&&c.dataset.name.toLowerCase().includes(q))));
+}
+filterButtons.forEach(b=>b.addEventListener('click',()=>{filterButtons.forEach(x=>x.classList.remove('active'));b.classList.add('active');applyFilters()}));
+searchInput.addEventListener('input',applyFilters);
 
-/* ---------- Liquid Glass ---------- */
-function initLiquidGlass() {
-    if (!window.LiquidGlass) return;
-
-    // Valeurs EXACTES de la goutte d'eau de ton exemple (valeurs par défaut de liquid-glass.js)
-    const base = {
-        radius: 60,
-        surface: 'convex_squircle',
-        glassThickness: 80,
-        bezelWidth: 60,
-        refractiveIndex: 3.0,
-        scaleRatio: 1.0,
-        blur: 0.3,
-        specularOpacity: 0.5,
-        specularSaturation: 4,
-        specularAngle: Math.PI / 3,
-        innerShadowColor: '#ffffff',
-        innerShadowBlur: 20,
-        innerShadowSpread: -5,
-        tintColor: '#ffffff',
-        tintOpacity: 0.06,
-        outerShadowBlur: 24,
-        fallbackBlur: 14,
-        interactive: false   // false = le scroll tactile n'est jamais bloqué (la démo avait true)
-    };
-
-    // Seul le dock reste « gélatine » au toucher, avec les réglages de ta démo
-    const presets = {
-        dock: { interactive: true, pressScale: 1.06, stretch: 0.0001, maxStretch: 0.12, stiffness: 260, damping: 14 }
-    };
-
-    document.querySelectorAll('.product-card').forEach(c => c.dataset.glass = 'product');
-    document.querySelectorAll('[data-glass]').forEach(el => {
-        const preset = presets[el.dataset.glass] || {};
-        LiquidGlass.apply(el, { ...base, ...preset });
-    });
+/* ---------- Liquid Glass : verre TRANSPARENT (aucune teinte blanche) ---------- */
+function initLiquidGlass(){
+  if(!window.LiquidGlass)return;
+  const base={
+    radius:60,surface:'convex_squircle',glassThickness:80,bezelWidth:60,
+    refractiveIndex:3.0,scaleRatio:1.0,blur:0,
+    specularOpacity:0.5,specularSaturation:4,specularAngle:Math.PI/3,
+    tintOpacity:0,                       // plus aucun voile blanc
+    innerShadowColor:'rgba(255,255,255,0)', innerShadowBlur:0, innerShadowSpread:0, // plus de halo blanc
+    outerShadowBlur:24,
+    fallbackBlur:0,                      // navigateurs sans réfraction : transparent pur
+    interactive:false
+  };
+  const presets={dock:{interactive:true}};
+  document.querySelectorAll('[data-glass]').forEach(el=>{
+    LiquidGlass.apply(el,{...base,...(presets[el.dataset.glass]||{})});
+  });
 }
 
-/* ---------- Démarrage ---------- */
-updateClock();
-setInterval(updateClock, 1000);
+updateClock();setInterval(updateClock,1000);
 animateVisitors();
 initLiquidGlass();
-
 </script>
 </body>
 </html>
