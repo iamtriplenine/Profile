@@ -93,33 +93,31 @@ searchInput?.addEventListener('input', applyFilters);
 function initLiquidGlass() {
     if (!window.LiquidGlass) return;
 
-    // Réglages communs : verre sombre, reflet orangé discret
+    // Valeurs EXACTES de la goutte d'eau de ton exemple (valeurs par défaut de liquid-glass.js)
     const base = {
+        radius: 60,
         surface: 'convex_squircle',
         glassThickness: 80,
-        bezelWidth: 40,
-        refractiveIndex: 3.0,      // fort = vraie goutte d'eau
-        scaleRatio: 3.6,
-        blur: 0.3,                 // quasi aucun flou : on veut la déformation, pas le flou
+        bezelWidth: 60,
+        refractiveIndex: 3.0,
+        scaleRatio: 1.0,
+        blur: 0.3,
         specularOpacity: 0.5,
         specularSaturation: 4,
+        specularAngle: Math.PI / 3,
         innerShadowColor: '#ffffff',
         innerShadowBlur: 20,
         innerShadowSpread: -5,
         tintColor: '#ffffff',
-        tintOpacity: 0.06,         // verre presque invisible
+        tintOpacity: 0.06,
         outerShadowBlur: 24,
         fallbackBlur: 14,
-        interactive: false
+        interactive: false   // false = le scroll tactile n'est jamais bloqué (la démo avait true)
     };
 
+    // Seul le dock reste « gélatine » au toucher, avec les réglages de ta démo
     const presets = {
-        hero:    { radius: 36, bezelWidth: 36 },
-        social:  { radius: 26, bezelWidth: 24 },
-        product: { radius: 28, bezelWidth: 28 },
-        chip:    { radius: 20, bezelWidth: 14, glassThickness: 50 },
-        // le dock gonfle et rebondit au toucher
-        dock:    { radius: 999, bezelWidth: 30, interactive: true, pressScale: 1.06 }
+        dock: { interactive: true, pressScale: 1.06, stretch: 0.0001, maxStretch: 0.12, stiffness: 260, damping: 14 }
     };
 
     document.querySelectorAll('.product-card').forEach(c => c.dataset.glass = 'product');
