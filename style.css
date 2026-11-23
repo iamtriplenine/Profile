@@ -72,9 +72,8 @@ a { color: inherit; }
 .glass-card {
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: var(--radius);
     background: transparent;
-    padding: 24px;
+    padding: 28px;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
 }
 
@@ -186,7 +185,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .social-card {
     text-decoration: none;
     padding: 16px;
-    border-radius: 22px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: 12px;
@@ -236,7 +234,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .product-card {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 24px;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
     overflow: hidden;
     display: flex;
@@ -257,7 +254,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
     font-weight: 700;
     font-size: 0.9rem;
     color: #fff;
-    border-radius: 999px;
     background: transparent;
     text-shadow: 0 1px 8px rgba(0,0,0,.6);
 }
@@ -310,7 +306,6 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
     align-items: center;
     gap: 4px;
     padding: 8px;
-    border-radius: 999px;
     border: 1px solid var(--line);
     background: transparent;
 }
@@ -353,7 +348,7 @@ h3 { font-size: 1.05rem; margin-bottom: 6px; }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 620px) {
-    .glass-card { padding: 18px; border-radius: 24px; }
+    .glass-card { padding: 22px; }
     .profile-img { width: 92px; height: 92px; }
     .links-grid, .products-grid { grid-template-columns: 1fr; }
     .hero-actions .btn { flex: 1; }
